@@ -1,0 +1,28 @@
+{
+  "id": "chatcmpl-f8622a3a-d714-4fae-a30b-97ff590f4d16",
+  "object": "chat.completion",
+  "created": 1783854030,
+  "model": "llama-3.3-70b-versatile",
+  "choices": [
+    {
+      "index": 0,
+      "finish_reason": "stop",
+      "message": {
+        "role": "assistant",
+        "content": "Alataf Ansari is not a well-known public figure that I am aware of. It's possible that Alataf Ansari is a private individual or a local personality who may not have gained widespread recognition. If you could provide more context or information about Alataf Ansari, I may be able to help you better. Where is he from, and what is he known for? This will help me narrow down the search and try to find more information about him."
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 52,
+    "completion_tokens": 97,
+    "total_tokens": 149,
+    "prompt_time": 0.00545988,
+    "completion_time": 0.281236829,
+    "total_time": 0.286696709
+  },
+  "provider": {
+    "name": "Groq",
+    "request_id": "req_01kxazrpv7ed888jjkggt4n0kh"
+  }
+}
