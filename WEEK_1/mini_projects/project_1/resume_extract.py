@@ -20,8 +20,8 @@ def read_pdf(file_path):
 
 pdf_text = read_pdf("resumes/fullstack_resume_pdf.pdf")
 
-print("##--------------------------------------------------------------------------------------------------------------##")
-print("PDF resume:", pdf_text[:10000])  # Print the first 1000 characters of the extracted text
+# print("##--------------------------------------------------------------------------------------------------------------##")
+# print("PDF resume:", pdf_text[:10000])  # Print the first 1000 characters of the extracted text
 
 # read Word document
 def read_docx(file_path):
@@ -34,8 +34,8 @@ def read_docx(file_path):
     return text
 
 doc_text = read_docx("resumes/fullstack_resume_word.docx")
-print("##--------------------------------------------------------------------------------------------------------------##")
-print("docx resume:", doc_text[:10000])
+# print("##--------------------------------------------------------------------------------------------------------------##")
+# print("docx resume:", doc_text[:10000])
 
 # Handles both formats dynamically based on the file extension
 def read_resume(file_path):
@@ -49,7 +49,61 @@ def read_resume(file_path):
 text_resume_pdf = read_resume("resumes/fullstack_resume_pdf.pdf")
 text_resume_docx = read_resume("resumes/fullstack_resume_word.docx")
 
+# load the HR requirement from JSON file
+def load_hr_requirement(file_path):
+    with open(file_path, "r") as file:
+        return json.load(file)
+    
+hr_requirements = load_hr_requirement("hr_requirement.json")
+print("##--------------------------------------------------------------------------------------------------------------##")
+print(hr_requirements)
+print("##--------------------------------------------------------------------------------------------------------------##")
+
+resume_text = """
+I am a Full Stack Developer with 4 years of experience.
+
+Skills:
+JavaScript, React, Node.js, HTML, CSS
+
+Projects:
+Worked on E-commerce platform.
+Built Real-time chat application.
+
+Worked in a product-based company.
+"""
+
 # step:2 | call groq api to extract the required details from the resume text and get the response.
+
+def create_prompt(resume_text, hr_requirements):
+    prompt = f'''
+    You are an AI Resume Screening Assistant.
+    Your job is to evaluate a candidate resume against HR requirements.
+
+    HR Requirements: {json.dumps(hr_requirements)}
+    Candidate Resume: {resume_text}
+
+    Rules:
+    1. Compare resume information with HR requirements.
+    2. Only use information available in the resume.
+    3. Do not make assumptions.
+    4. Identify matched skills, experience and projects.
+    5. Identify missing requirements.
+    6. Give a match percentage.
+    7. Give hiring decision.
+
+
+    Return ONLY JSON.
+
+    Expected format:
+
+    {{
+        "match_percentage": number,
+        "matched": [],
+        "missing": [],
+        "decision": "Shortlist | Reject | Review"
+    }}
+'''
+    return prompt
 
 # load api_key & other related key details from env file
 load_dotenv("../../../.env") # recommended to give relative path for .env file
@@ -68,24 +122,22 @@ my_response_format = {
     "type": "json_object"
 }
 
-system_message = {
-    "role": "system",
-    "content": "I want to extract the following details from resume: name, email, phone number, skills, eductation only if he is from IIT/NIT/IIIT or other well known universities, projects, and experience. Please provide the output in JSON format."
-}
+prompt = create_prompt(resume_text, hr_requirements)
 
 user_message = {
     "role": "user",
-    "content": "I'll provide you a resume in pdf or word format."
+    "content": prompt
 }
 
-my_message_list = [system_message, user_message]
+my_message_list = [user_message]
 
 # get response from groq
-# my_response = my_client.chat.completions.create(
-#     model = my_model,
-#     messages = my_message_list,
-#     response_format = my_response_format,
-#     temperature = 1.5
-# )
+my_response = my_client.chat.completions.create(
+    model = my_model,
+    messages = my_message_list,
+    response_format = my_response_format,
+    temperature = 0
+)
 
+print(my_response.choices[0].message.content)
 

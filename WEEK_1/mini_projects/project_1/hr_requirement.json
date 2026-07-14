@@ -1,0 +1,19 @@
+{
+  "role": "Full Stack Developer",
+  "experience": "3+ years",
+  "skills": [
+    "JavaScript",
+    "React",
+    "Node.js",
+    "HTML",
+    "CSS",
+    "MongoDB",
+    "Docker",
+    "AWS"
+  ],
+  "projects": [
+    "E-commerce",
+    "Real-time app"
+  ],
+  "company_type": "Product-based"
+}
