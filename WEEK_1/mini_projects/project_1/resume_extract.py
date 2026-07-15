@@ -70,5 +70,15 @@ my_response = my_client.chat.completions.create(
     temperature = 0
 )
 
-print(my_response.choices[0].message.content)
+response_json = my_response.choices[0].message.content
+
+def safe_parse(response_json):
+    try:
+        return json.loads(response_json)
+    except:
+        print({"error": "Invalid JSON response from the LLM."})
+        return None
+
+result = safe_parse(response_json)
+print("Final Result:", result)
 
