@@ -1,8 +1,5 @@
 import json
-from resume_extract import job_desc_schema
-from resume_extract import resume_schema
-from resume_extract import resume_text
-
+from schemas import job_desc_schema,resume_schema
 # Job description
 # system: Behaviour & rules
 # user: actual input(resume + HR JSON)
@@ -41,7 +38,7 @@ Preferred Qualifications
 - Excellent written and verbal communication skills
 """
 
-system_prompt = f"""
+job_desc_system_prompt = f"""
 You are an AI Resume Screening Expert.
 
 Your job is to analyze job descriptions and extract 
@@ -60,7 +57,7 @@ Do not invent information.
 
 """
 
-user_prompt = f"""
+job_desc_user_prompt = f"""
 Analyze the following job description:
 
 {job_description}
@@ -97,12 +94,6 @@ parse_resume_system_prompt = f"""
     3. If a list has no information, return an empty list.
     4. Include internships inside experiences.
     5. Extract skills mentioned across the entire resume.
-    """
-
-parse_resume_user_prompt = f"""
-    Parse the following resume:
-
-    {resume_text}
     """
 
 

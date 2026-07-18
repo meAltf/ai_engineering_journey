@@ -38,6 +38,11 @@ def read_resume(file_path):
     else:
         raise ValueError("Unsupported file format. Please provide a PDF or Word document.")
 
+# just to resolve circular dependency between resume_extract & prompts files
+def get_resume_text(file_path):
+    return read_resume(file_path)
+
+
 
 #pdf_text = read_resume("resumes/fullstack_resume_pdf.pdf")
 # print("PDF resume:", pdf_text[:10000])

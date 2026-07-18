@@ -3,13 +3,10 @@ from pathlib import Path
 import time
 from dotenv import load_dotenv
 from groq import Groq
-from PyPDF2 import PdfReader
-from docx import Document
 import json
-from extract_text import read_resume
-from prompts import system_prompt
-from prompts import parse_resume_system_prompt
-from prompts import parse_resume_user_prompt
+from extract_text import get_resume_text
+from prompts import job_desc_system_prompt, job_desc_user_prompt, parse_resume_system_prompt
+from schemas import JobDesc, MatchResult, Resume, match_result_schema
 
 
 # load api_key & other related key details from env file
@@ -25,32 +22,30 @@ my_client = Groq(api_key = my_api_key)
 
 my_model = "openai/gpt-oss-120b"
 
-# step:1 | HR uploaded the job description, requirements | convert it into a JSON format(job_desc schema)
-class JobDesc:
-    role: str
-    required_skills: list[str]
-    preferred_skills: list[str]
-    minimum_experience: float | None
-    educational_requirements: list[str]
-    responsibilities: list[str]
-
-job_desc_schema = JobDesc.model_json_schema()
-
-my_response_format = {
+# llm response should be in json format
+response_format = {
     "type": "json_object"
 }
 
+# parse llm response & loads as json
+def safe_parse(raw_llm_response):
+    try:
+        return json.loads(raw_llm_response)
+    except:
+        print({"error": "Invalid JSON response from the LLM."})
+        return None
+
+# step:1 | HR uploaded the job description, requirements | convert it into a JSON format(job_desc schema) | 1st LLM call
+
 system_message = {
     "role": "system",
-    "content": system_prompt
+    "content": job_desc_system_prompt
 }
 
 user_message = {
     "role": "user",
-    "content": user_prompt
+    "content": job_desc_user_prompt
 }
-
-# step:2 | call groq api to extract the required details from the resume text and get the response.
 
 my_message_list = [system_message, user_message]
 
@@ -58,72 +53,74 @@ my_message_list = [system_message, user_message]
 my_response = my_client.chat.completions.create(
     model = my_model,
     messages = my_message_list,
-    response_format = my_response_format,
-    temperature = 0
+    response_format = response_format,
+    temperature = 1
 )
 
 response_json = my_response.choices[0].message.content
 
-def safe_parse(response_json):
-    try:
-        return json.loads(response_json)
-    except:
-        print({"error": "Invalid JSON response from the LLM."})
-        return None
-
 raw_response_json = safe_parse(response_json)
-# print("Final Raw JSON Result:", raw_response_json)
 
-##### ### ### ### ### ### ###
-job_data = json.loads(raw_response_json)
-job_json = JobDesc(**job_data)
+print("Final Raw JSON Result:", raw_response_json)
 
-print(job_json.preferred_skills)
-print(job_json.responsibilities)
+job_desc_json = JobDesc(**raw_response_json)
+
+print("Final job desc JSON Result:", job_desc_json)
+print(job_desc_json.preferred_skills)
+print(job_desc_json.responsibilities)
 
 
-##### ### ### ### ### ### ###
-class MatchResult(BaseModel):
-    score: float
-    details: dict
+# step: 2 | parse resume and get necessary details from resumes as resume schema in json
+def parse_resume(resume_text):
 
-class Experience(BaseModel):
-    company: str | None = None
-    role: str | None = None
-    duration: str | None = None
-    description: str | None = None
-    skills_used: list[str] = []
+    parse_resume_user_prompt = f"""
+    Parse the following resume:
 
-class Resume(BaseModel):
-    name: str | None = None
-    email: str | None = None
-    phone: str | None = None
+    {resume_text}
+    """
 
-    total_experience_years: float | None = None
+    system_message = {
+        "role": "system",
+        "content": parse_resume_system_prompt
+    }
 
-    skills: list[str] = []
-    experiences: list[Experience] = []
-    education: list[str] = []
-    projects: list[str] = []
-    certifications: list[str] = []
+    user_message = {
+        "role": "user",
+        "content": parse_resume_user_prompt
+    }
 
-resume_schema = Resume.model_json_schema()
+    message_list = [system_message, user_message]
+    response = my_client.chat.completions.create(
+        model = my_model,
+        message = message_list,
+        response = response_format,
+        temperature = 1
+    )
 
-### ### ###
-def final_score(job_json, resume_json):
-    match_schema = MatchResult.model_json_schema()
-    prompt = f'''
+    raw_output = response.choices[0].message.content
+
+    raw_output_json = safe_parse(raw_output)
+    resume_data_json = Resume(**raw_output_json)
+    print("resume json: ", resume_data_json)
+
+    return resume_data_json
+
+# step:3 | get final score from each resume against job desc
+def final_score(job_desc_json, resume_json):
+
+    match_schema = match_result_schema
+
+    user_prompt = f'''
     You are an HR recruiter.
-
     Compare the candidate's resume with the job description.
 
     JOB DESCRIPTION:
-    {job_json.model_dump_json(indent=2)}
+    {job_desc_json.model_dump_json(indent=2)}
 
     CANDIDATE RESUME:
     {resume_json.model_dump_json(indent=2)}
-    Return JSON matching this schema:
 
+    Return JSON matching this schema:
     {match_schema}
 
     Give me:
@@ -140,12 +137,9 @@ def final_score(job_json, resume_json):
 
     user_message = {
         "role": "user",
-        "content": prompt
+        "content": user_prompt
     }
     message_list = [user_message]
-    response_format = {
-        "type": "json_object"
-    }
 
     response = my_client.chat.completions.create(
         model = my_model,
@@ -154,40 +148,16 @@ def final_score(job_json, resume_json):
         temperature = 1
     )
 
-    data = response.choices[0].message.content
-    data_json = json.load(data)
-    return MatchResult(**data_json)
+    final_score_data = response.choices[0].message.content
 
-def parse_resume(resume_text):
-    system_message = {
-        "role": "system",
-        "content": parse_resume_system_prompt
-    }
+    data_json = safe_parse(final_score_data)
+    match_result_json = MatchResult(**data_json)
+    print("Match result data json: ", match_result_json)
 
-    user_message = {
-        "role": "user",
-        "content": parse_resume_user_prompt
-    }
-
-    response_format = {
-        "type": "json_object"
-    }
-
-    message_list = [system_message, user_message]
-    response = my_client.chat.completions.create(
-        model = my_model,
-        message = message_list,
-        response = response_format,
-        temperature = 1
-    )
-
-    raw_output = response.choices[0].message.content
-    data = json.load(raw_output)
-    resume_data_json = Resume(**data)
-    return resume_data_json
+    return match_result_json
 
 
-#### final part
+# step:3 | get final result of each resume against given job desc
 resume_folder = Path("resumes")
 all_results = []
 
@@ -196,12 +166,13 @@ for file_path in resume_folder.iterdir():
         continue
     print("\nProcessing the resumes:", file_path.name)
 
-    resume_text = read_resume(file_path)
+    resume_text = get_resume_text(file_path)
     parsed_resume = parse_resume(resume_text)
 
+    # to prevent rate limit of api call
     time.sleep(5)
 
-    result = final_score(job_json, parsed_resume)
+    result = final_score(job_desc_json, parsed_resume)
 
     time.sleep(5)
 
@@ -213,7 +184,6 @@ for file_path in resume_folder.iterdir():
         "details": result.details
     })
 
-## ##
 
 all_results.sort(
     key = lambda candidate: candidate["score"],
