@@ -31,9 +31,9 @@ def read_docx(file_path):
 
 # Handles both formats dynamically based on the file extension
 def read_resume(file_path):
-    if file_path.endswith(".pdf"):
+    if file_path.suffix.lower() == ".pdf":
         return read_pdf(file_path)
-    elif file_path.endswith(".docx"):
+    elif file_path.suffix.lower() == ".docx":
         return read_docx(file_path)
     else:
         raise ValueError("Unsupported file format. Please provide a PDF or Word document.")

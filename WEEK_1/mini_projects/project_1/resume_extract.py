@@ -92,8 +92,8 @@ def parse_resume(resume_text):
     message_list = [system_message, user_message]
     response = my_client.chat.completions.create(
         model = my_model,
-        message = message_list,
-        response = response_format,
+        messages = message_list,
+        response_format = response_format,
         temperature = 1
     )
 
@@ -143,8 +143,8 @@ def final_score(job_desc_json, resume_json):
 
     response = my_client.chat.completions.create(
         model = my_model,
-        message = message_list,
-        response = response_format,
+        messages = message_list,
+        response_format = response_format,
         temperature = 1
     )
 
@@ -158,7 +158,7 @@ def final_score(job_desc_json, resume_json):
 
 
 # step:3 | get final result of each resume against given job desc
-resume_folder = Path("resumes")
+resume_folder = Path("./resumes")
 all_results = []
 
 for file_path in resume_folder.iterdir():
