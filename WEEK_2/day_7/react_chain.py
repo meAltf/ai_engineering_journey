@@ -1,6 +1,8 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import re
+from time import sleep
 
 
 # Get necessary details from .env file
@@ -55,6 +57,7 @@ get_product_price(product="iPhone 17")
 
 Never write:
 calculator(expression="5000 - 1000")
+
 Follow these rules:
 
 1. Decide what you need to do next.
@@ -78,4 +81,82 @@ Final Answer: your answer
 
 def run_agent(question):
     # implementation 
+    message_list = [
+        {
+            "role": "system",
+            "content": system_prompt
+        },
+        {
+            "role": "user",
+            "content": question
+        } 
+    ]
+
+    # parameter in range dependes on how many tools you want to use accordingly
+    for step in range(5):
+        print("\n------------------")
+        print("STEP: ", step + 1)
+        print("--------------------")
+
+        response = my_client.chat.completions.create(
+            model = my_model,
+            messages = message_list,
+            temperature = 0
+        )
+
+        answer = response.choices[0].message.content
+
+        print(answer)
+
+        # Agent has finished with his work
+        if "Final Answer:" in answer:
+            break
+
+        # find the action
+        match = re.search( r"Action:\s*(\w+)\((.*?)\)", answer )
+
+        if match:
+            tool_name = match.group(1)
+
+            tool_input = match.group(2)
+
+            tool_input = tool_input.strip()
+
+            tool_input = tool_input.strip('"')
+
+        # Run the tool
+        if tool_name in tools:
+            tool = tools[tool_name]
+            observation = tool(tool_input)
+        else:
+            observation = "Tool not found!"
+
+        print("Observation: ", observation)
+
+        # Add LLM response to memory
+        message_list.append(
+            {
+            "role": "assistant",
+            "content": answer
+            }
+        )
+
+        # Now, give tool result back to LLM
+        message_list.append(
+            {
+                "role": "user",
+                "content": "Observation: " + str(observation)
+            }
+        )
+
+        sleep(5)
+
+
+prompt = """
+I have 10000 rupees. What is the price of an Iphone 17?
+and how much money will I have left?
+"""
+
+# Run AGENT-AI
+run_agent(prompt)
 
