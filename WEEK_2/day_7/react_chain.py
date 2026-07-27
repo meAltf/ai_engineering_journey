@@ -20,9 +20,9 @@ my_model = "openai/gpt-oss-120b"
 # start implementation of reAct chain & it's working paradim
 
 def get_product_price(product):
-    if product == 'Iphone 17':
+    if product == 'iPhone 17':
         return 1000
-    elif product == 'iphone 15':
+    elif product == 'iPhone 15':
         return 500
     else:
         return 0
@@ -66,7 +66,8 @@ Follow these rules:
 4. Never guess or invent a tool result.
 5. Wait until you receive an Observation.
 6. Then decide your next action.
-7. When the task is complete, give the Final Answer.
+7. To perform task after one task, if require use given tool don't do by yourself.
+8. When the task is complete, give the Final Answer.
 
 Format:
 
@@ -149,11 +150,11 @@ def run_agent(question):
             }
         )
 
-        sleep(5)
+        sleep(2)
 
 
 prompt = """
-I have 10000 rupees. What is the price of an Iphone 17?
+I have 10000 rupees. What is the price of an Iphone 17 ?
 and how much money will I have left?
 """
 
