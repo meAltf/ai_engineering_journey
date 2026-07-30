@@ -1,0 +1,491 @@
+{
+    "name": "Alataf Ansari",
+    "title": "Java Spring Boot Developer with AI domain knowledge",
+    "education": [
+        {
+            "degree": "B.Tech",
+            "field": "Computer Science & Engineering",
+            "college": "DCE Darbhanga",
+            "CGPA": 8.46
+        }
+    ],
+    "experience": [
+        {
+            "company": "BNP Paribas",
+            "role": "Senior Software Engineer",
+            "years": 1,
+            "tech-stack": [
+                "Java",
+                "Springboot",
+                "Kafka",
+                "MongoDB",
+                "OracleDB",
+                "Angular",
+                "Gitlab CI/CD",
+                "Docker",
+                "Kubernetes"
+            ],
+            "domain": "Banking/KYC"
+        },
+        {
+            "company": "Mindsprint (Olam information services)",
+            "role": "Software Engineer",
+            "years": 2,
+            "tech-stack": [
+                "Java",
+                "Springboot",
+                "Kafka",
+                "MySQL",
+                "EleasticSearch",
+                "Angular",
+                "Jenkins"
+            ],
+            "domain": "Agriculture/Supply chain"
+        }
+    ],
+    "skills": {
+        "languages": [
+            "Java",
+            "Python",
+            "JavaScript"
+        ],
+        "frameworks": [
+            "Spring Boot",
+            "Angular"
+        ],
+        "tools": [
+            "Docker",
+            "Kubernetes",
+            "GitLab CI/CD"
+        ],
+        "databases": [
+            "MySQL",
+            "MongoDB",
+            "ElasticSearch"
+        ]
+    },
+    "projects": [
+        {
+            "name": "AI-Powered Feedback Sentiment Analyzer",
+            "description": "Full-stack application to collect, process, and analyze customer feedback in real time using Spring AI and OpenAI API, providing actionable sentiment insights (positive/neutral/negative) for decision-making.",
+            "tech": [
+                "Java 17",
+                "Spring Boot",
+                "Spring AI",
+                "OpenAI API",
+                "React.js",
+                "REST APIs",
+                "Docker",
+                "Maven"
+            ]
+        },
+        {
+            "name": "Real-Time Collaborative Document Editing Platform",
+            "description": "Real-time document editing platform enabling multiple users to collaborate simultaneously with conflict-free updates using Apache Kafka, with secure authentication via JWT and RBAC.",
+            "tech": [
+                "Java 17",
+                "Spring Boot",
+                "Apache Kafka",
+                "JWT",
+                "Redis",
+                "MongoDB"
+            ]
+        },
+        {
+            "name": "Resume Screening (LLM)",
+            "description": "Matches resume with HR requirements using LLM",
+            "tech": [
+                "Python",
+                "LLM",
+                "Prompt Engineering"
+            ]
+        }
+    ],
+    "certifications": [
+        {
+            "name": "Kubernetes for the Absolute Beginners - Hands-on",
+            "issuer": "Udemy",
+            "issued": "Jul 2025",
+            "credential_id": "UC-84e90fc0-9cef-4c79-8cc5-ccc5918f00be",
+            "skills": [
+                "Kubernetes",
+                "Docker"
+            ]
+        },
+        {
+            "name": "Master Generative AI with Java and Spring Boot | Spring AI",
+            "issuer": "Udemy",
+            "issued": "Apr 2025",
+            "credential_id": "UC-6f422062-1bb8-4769-aad1-eed95e49edc8",
+            "skills": [
+                "Microservices",
+                "OpenAI API",
+                "Generative AI"
+            ]
+        },
+        {
+            "name": "Generative AI for Beginners",
+            "issuer": "Udemy",
+            "issued": "Mar 2025",
+            "credential_id": "UC-cb34c3e4-9194-4f44-b85b-1174af96c5bd",
+            "skills": [
+                "Artificial Intelligence"
+            ]
+        },
+        {
+            "name": "Time Management Mastery: Do More, Stress Less",
+            "issuer": "Udemy",
+            "issued": "Oct 2024",
+            "credential_id": "UC-adc33c1d-200d-4d48-9f6f-ab11d7c6ec36",
+            "skills": []
+        },
+        {
+            "name": "Master IntelliJ Idea | Become a Productive Java Developer",
+            "issuer": "Udemy",
+            "issued": "Jun 2024",
+            "credential_id": "UC-0d490e61-5e2f-40df-babf-5e31f4684e8f",
+            "skills": [
+                "IntelliJ IDEA",
+                "Java"
+            ]
+        },
+        {
+            "name": "Build REST API with Spring Boot & Spring Data JPA",
+            "issuer": "Udemy",
+            "issued": "Jun 2024",
+            "credential_id": "UC-170e7785-9d7e-4f43-b93a-b55e1bd271a7",
+            "skills": [
+                "Spring Boot",
+                "Spring Data JPA",
+                "Postman",
+                "Java"
+            ]
+        },
+        {
+            "name": "Java Database Connection: JDBC and MySQL",
+            "issuer": "Udemy",
+            "issued": "Dec 2024",
+            "credential_id": "UC-9087244d-f9de-44ea-882d-942c9c4471e8",
+            "skills": [
+                "JDBC",
+                "MySQL",
+                "SQL"
+            ]
+        },
+        {
+            "name": "Practice Java by Building Projects",
+            "issuer": "Udemy",
+            "issued": "Dec 2024",
+            "credential_id": "UC-d4870016-95b5-4fcd-b47c-fb0cd7090eb2",
+            "skills": [
+                "Java",
+                "OOP"
+            ]
+        },
+        {
+            "name": "Spring Boot REST & Angular + Full Stack Application!",
+            "issuer": "Udemy",
+            "issued": "Dec 2024",
+            "credential_id": "UC-fa67a03a-c0bb-4898-856d-0afc90f273e7",
+            "skills": [
+                "Spring Boot",
+                "Angular",
+                "Microservices"
+            ]
+        },
+        {
+            "name": "Become a Junior Java Software Developer",
+            "issuer": "Udemy",
+            "issued": "Dec 2024",
+            "credential_id": "UC-162a98ef-4aaf-4bb6-824a-5e6fc70398e1",
+            "skills": [
+                "Java",
+                "OOP"
+            ]
+        },
+        {
+            "name": "Business Skills: Email Etiquette Rules Everyone Should Know",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-acc02fc9-ef79-4fca-905f-63c4a004516c",
+            "skills": []
+        },
+        {
+            "name": "Quick Introduction to Postman and API Testing for Beginners",
+            "issuer": "Udemy",
+            "issued": "Dec 2024",
+            "credential_id": "UC-93c159db-4fb5-4c3d-92ce-a5cd96b4fec3",
+            "skills": [
+                "Postman",
+                "API Testing"
+            ]
+        },
+        {
+            "name": "Software Development and IT - Complete Guide To Key Concepts",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-9222e947-c77d-44aa-bf60-f3f16aedc0c2",
+            "skills": [
+                "Software Development"
+            ]
+        },
+        {
+            "name": "AZ-900 Microsoft Azure Fundamentals in a Weekend",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-7acce2e0-27d7-4ff3-ad47-086ddfec9541",
+            "skills": [
+                "Azure"
+            ]
+        },
+        {
+            "name": "Application Security - The Complete Guide",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-b84c4e62-8c56-4d18-ad76-76517810e07a",
+            "skills": [
+                "Application Security"
+            ]
+        },
+        {
+            "name": "Java for Absolute Beginners",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-51ac826c-3d6c-4e5e-8eb4-6bbbb2901e9b",
+            "skills": [
+                "Java",
+                "OOP"
+            ]
+        },
+        {
+            "name": "SQL - Introduction to SQL with MySQL",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-4f89cabe-6cf8-4540-8439-c7a7846abce4",
+            "skills": [
+                "SQL",
+                "MySQL"
+            ]
+        },
+        {
+            "name": "Clean Code",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-75cd6d23-21ea-4d32-886d-0ae7194021d1",
+            "skills": [
+                "Clean Code"
+            ]
+        },
+        {
+            "name": "Learn about CI/CD, DevOps",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-c112be84-57ee-4eab-8920-a6617fa745aa",
+            "skills": [
+                "CI/CD",
+                "DevOps"
+            ]
+        },
+        {
+            "name": "SOLID Principles: Introducing Software Architecture & Design",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-38fa7a0c-3258-4adc-9dd5-638227438087",
+            "skills": [
+                "SOLID Principles"
+            ]
+        },
+        {
+            "name": "Jenkins: Beginner To Pro",
+            "issuer": "Udemy",
+            "issued": "Jul 2023",
+            "credential_id": "UC-7ed1ae6d-b296-40db-9b2e-e8935ca8c9e3",
+            "skills": [
+                "Jenkins"
+            ]
+        },
+        {
+            "name": "Git Going Fast: One Hour Git Crash Course",
+            "issuer": "Udemy",
+            "issued": "Jun 2023",
+            "credential_id": "UC-8e6e3be4-4da9-4519-811f-ed59e3ba9e22",
+            "skills": [
+                "Git",
+                "GitHub"
+            ]
+        },
+        {
+            "name": "Microsoft Security Operations Analyst",
+            "issuer": "Microsoft",
+            "issued": "Dec 2023",
+            "skills": [
+                "Security Operations"
+            ]
+        },
+        {
+            "name": "Develop Generative AI Solutions with Azure OpenAI Service",
+            "issuer": "Microsoft",
+            "issued": "Dec 2023",
+            "skills": [
+                "Azure OpenAI",
+                "Generative AI"
+            ]
+        },
+        {
+            "name": "JAVA",
+            "issuer": "LetsUpgrade",
+            "issued": "Oct 2023",
+            "credential_id": "LUEJAVAOCT1231823",
+            "skills": [
+                "Java"
+            ]
+        },
+        {
+            "name": "Prompt Engineering",
+            "issuer": "LetsUpgrade",
+            "issued": "Oct 2023",
+            "credential_id": "LUEPESEP1231144",
+            "skills": [
+                "Prompt Engineering"
+            ]
+        },
+        {
+            "name": "C++",
+            "issuer": "LetsUpgrade",
+            "issued": "Oct 2023",
+            "credential_id": "LUECPPOCT123188",
+            "skills": [
+                "C++"
+            ]
+        },
+        {
+            "name": "HTML and CSS",
+            "issuer": "LetsUpgrade",
+            "issued": "Sep 2023",
+            "credential_id": "LUEHTMLSEP2231789",
+            "skills": [
+                "HTML",
+                "CSS"
+            ]
+        },
+        {
+            "name": "SQL (Basic) Certificate",
+            "issuer": "HackerRank",
+            "issued": "Aug 2023",
+            "credential_id": "0472771B7E3F",
+            "skills": [
+                "MySQL"
+            ]
+        },
+        {
+            "name": "Java (Basic) Certificate",
+            "issuer": "HackerRank",
+            "issued": "Aug 2023",
+            "credential_id": "F1B81AEBCC1A",
+            "skills": [
+                "Java",
+                "Problem Solving"
+            ]
+        },
+        {
+            "name": "Problem Solving (Basic) Certificate",
+            "issuer": "HackerRank",
+            "issued": "Aug 2023",
+            "credential_id": "FC37DCAF39AD",
+            "skills": [
+                "Problem Solving"
+            ]
+        },
+        {
+            "name": "Tata Crucible Campus Quiz 2023 Participation",
+            "issuer": "Unstop",
+            "issued": "Jul 2023",
+            "credential_id": "96a51172-fb01-493e-bdb0-5b3a909c4cd2",
+            "skills": []
+        },
+        {
+            "name": "Introduction to Programming Using Java",
+            "issuer": "NPTEL",
+            "issued": "Nov 2022",
+            "skills": [
+                "Java"
+            ]
+        },
+        {
+            "name": "Professional Collection Specialist (PCS)",
+            "issuer": "Aspiring Minds",
+            "issued": "Dec 2020",
+            "credential_id": "16185645-197",
+            "skills": [
+                "Problem Solving",
+                "Debugging"
+            ]
+        },
+        {
+            "name": "Data Processing Specialist",
+            "issuer": "Aspiring Minds",
+            "issued": "Dec 2020",
+            "credential_id": "16185645-211",
+            "skills": [
+                "Problem Solving",
+                "Debugging"
+            ]
+        },
+        {
+            "name": "Council of Europe Level A1",
+            "issuer": "Cambridge English",
+            "issued": "May 2021",
+            "skills": [
+                "English"
+            ]
+        },
+        {
+            "name": "CCNA: Enterprise Networking, Security, and Automation",
+            "issuer": "Cisco",
+            "issued": "May 2021",
+            "skills": [
+                "Networking",
+                "Security"
+            ]
+        },
+        {
+            "name": "Introduction to Cybersecurity",
+            "issuer": "Cisco",
+            "issued": "Apr 2021",
+            "skills": [
+                "Cybersecurity"
+            ]
+        },
+        {
+            "name": "Introduction to Packet Tracer",
+            "issuer": "Cisco",
+            "issued": "Apr 2021",
+            "skills": [
+                "Networking"
+            ]
+        },
+        {
+            "name": "Cybersecurity Essentials",
+            "issuer": "Cisco",
+            "issued": "Apr 2021",
+            "skills": [
+                "Cybersecurity"
+            ]
+        }
+    ],
+    "achievements": [
+        "500 days LeetCode streak",
+        "Ranked 3rd in the GeeksforGeeks(GFG) college leaderboard",
+        "Recognized for exceptional performance [ Mindsprint ]",
+        "published an article on the company’s [Mindsprint] official page.",
+        "Hacktoberfest Hackathon Winner",
+        "Secured Rank‑2 in Bug‑Hunting in Techfest at BCE.",
+        "Programming In Java (83%) (Silver Badge) [ NPTEL ]"
+    ],
+    "social_links": {
+        "portfolio": "https://mealtf-portfolio.lovable.app",
+        "github": "https://github.com/meAltf",
+        "linkedin": "https://www.linkedin.com/in/meAltf/",
+        "leetcode": "https://leetcode.com/auth_4/"
+    }
+}

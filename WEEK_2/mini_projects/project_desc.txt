@@ -1,0 +1,24 @@
+# Create an AI version of yourself & deploy
+
+1. Create your candidate profile
+    - Create all your information in structured format
+    - Includes, name, eductation, CGPA, skills, projects, experience, achievements, certifications, social links etc.
+
+2. Choose LLM
+    - Groq as it's free
+
+3. Write a system prompt
+    - Teach AI who it is 
+    - You're the AI representative of this candidate
+    - Answer only using the provided information
+    - Never hallucinate
+    - If information is missing clearly say you don't know
+    - Be honest & professional while answering
+
+4. Build the Backend api  
+    - Receive a user's question
+    - Loads your candidate date
+    - Send everything to the LLM
+    - Stream back the LLM response
+
+5. next step i'll add later upon progress.
