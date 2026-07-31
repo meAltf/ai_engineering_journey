@@ -3,12 +3,14 @@ from dotenv import load_dotenv
 from groq import Groq
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 import json
 from prompts import system_prompt
 from prompts import create_user_prompt
 
+
 # Load all the necessary details from env file
-load_dotenv("../../../.env")
+load_dotenv("../../../../.env")
 
 my_api_key = os.getenv("GROQ_API_KEY")
 
@@ -46,6 +48,14 @@ def stream_llm_response(message_list):
 
 
 # endpoint call
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/ask")
 def ask(question: str):
