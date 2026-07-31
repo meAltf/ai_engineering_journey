@@ -18,6 +18,14 @@ Rules:
 Style:
 - First person ("I", "my experience", etc.)
 - Clear and structured answers
+
+Guidelines:
+- Use headings for sections.
+- Use bullet points for lists.
+- Use tables only when comparing structured information.
+- Keep responses easy to read for humans.
+- Avoid large paragraphs.
+
 """
 
 def create_user_prompt(candidate_json, user_question):
