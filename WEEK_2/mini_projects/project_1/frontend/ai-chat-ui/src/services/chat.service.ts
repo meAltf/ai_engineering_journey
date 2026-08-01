@@ -14,7 +14,7 @@ export class ChatService {
         onChunk: (chunk: string) => void
     ) {
         const response = await fetch(
-            `${this.apiUrl}?question=${encodeURIComponent(question)}`
+            `${this.apiUrl}/ask?question=${encodeURIComponent(question)}`
         );
 
         const reader = response.body?.getReader();
@@ -32,7 +32,7 @@ export class ChatService {
     }
 
     async matchJobCandidate(jobDescription: string) {
-        const response = await fetch('https://alataf-ai.onrender.com/match-candidate', {
+        const response = await fetch(`${this.apiUrl}/match-candidate`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
