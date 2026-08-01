@@ -9,7 +9,7 @@ from prompts import create_job_desc_user_prompt, system_prompt, create_user_prom
 from schemas import JobDesc, JDRequest, MatchResult
 
 # Load all the necessary details from env file
-load_dotenv("../../../../.env")
+load_dotenv(".env")
 
 my_api_key = os.getenv("GROQ_API_KEY")
 
