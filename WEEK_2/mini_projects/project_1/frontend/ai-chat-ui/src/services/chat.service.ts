@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../environments/environment.prod';
 
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 })
 export class ChatService {
 
-    private apiUrl = 'http://localhost:8000/ask';
+    private apiUrl = environment.apiUrl;
 
     async streamResponse(
         question: string,
@@ -31,7 +32,7 @@ export class ChatService {
     }
 
     async matchJobCandidate(jobDescription: string) {
-        const response = await fetch('http://localhost:8000/match-candidate', {
+        const response = await fetch('https://alataf-ai.onrender.com/match-candidate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
