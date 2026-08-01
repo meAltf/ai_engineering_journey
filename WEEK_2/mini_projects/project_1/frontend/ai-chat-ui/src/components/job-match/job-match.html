@@ -1,0 +1,41 @@
+<div class="container">
+
+    <h2>Job Description Matching</h2>
+
+    <textarea [(ngModel)]="jobDescription" placeholder="Paste Job Description here..."></textarea>
+
+    <button (click)="analyze()">Analyze</button>
+
+    @if(loading){
+    <p>Analyzing...</p>
+    }
+
+    @if(result){
+
+    <div class="result">
+
+        <h3>Match: {{result.match_percentage}}%</h3>
+
+        <p><strong>Suitable:</strong> {{result.suitable}}</p>
+
+        <h4>Strengths</h4>
+        <ul>
+            @for(item of result.strengths; track $index){
+            <li>✅ {{item}}</li>
+            }
+        </ul>
+
+        <h4>Missing Skills</h4>
+        <ul>
+            @for(item of result.missing_skills; track $index){
+            <li>❌ {{item}}</li>
+            }
+        </ul>
+
+        <h4>Recommendation</h4>
+        <p>{{result.recommendation}}</p>
+
+    </div>
+    }
+
+</div>

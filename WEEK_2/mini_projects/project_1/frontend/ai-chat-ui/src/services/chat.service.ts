@@ -29,4 +29,20 @@ export class ChatService {
             onChunk(chunk);
         }
     }
+
+    async matchJobCandidate(jobDescription: string) {
+        const response = await fetch('http://localhost:8000/match-candidate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ job_description: jobDescription })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+    }
 }
