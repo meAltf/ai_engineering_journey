@@ -1,7 +1,22 @@
-<h1>AI Candidate Assistant</h1>
+<div class="app-container">
 
-<app-chat></app-chat>
+    <h1>AI Candidate Assistant</h1>
 
-<hr>
+    <!-- Tabs -->
+    <div class="tabs">
+        <button [class.active]="activeTab === 'chat'" (click)="activeTab = 'chat'"> Chat </button>
 
-<app-job-match></app-job-match>
+        <button [class.active]="activeTab === 'job'" (click)="activeTab = 'job'"> Job Match </button>
+
+        <!-- Dark Mode Toggle -->
+        <button class="toggle" (click)="toggleTheme()"> 🌙 </button>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        @if(activeTab === 'chat'){ <app-chat></app-chat> }
+
+        @if(activeTab === 'job'){ <app-job-match></app-job-match> }
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+.app-container {
+  padding: 20px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+.tabs button.active {
+  background: #007bff;
+  color: white;
+}
+
+/* Dark Mode */
+body.dark .tabs button {
+  background: #333;
+  color: #fff;
+}
+
+body.dark .tabs button.active {
+  background: #4dabf7;
+}
+
+/* Toggle button */
+.toggle {
+  margin-left: auto;
+}

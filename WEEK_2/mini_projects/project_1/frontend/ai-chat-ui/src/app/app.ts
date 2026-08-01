@@ -11,4 +11,17 @@ import { JobMatch } from '../components/job-match/job-match';
 })
 export class App {
   protected readonly title = signal('ai-chat-ui');
+  activeTab: 'chat' | 'job' = 'chat';
+
+  toggleTheme() {
+
+  const body = document.body;
+
+  if (body.classList.contains('dark')) {
+    body.classList.remove('dark');
+  } else {
+    body.classList.add('dark');
+  }
+
+}
 }
