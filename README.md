@@ -19,6 +19,8 @@ The focus is on building **production-ready systems**, not just theoretical unde
 
 ---
 
+## Personal-ai-assistant: https://alataf-ai.vercel.app/
+
 ## Learning Roadmap
 
 ### 🔹 LLM Fundamentals + API Mastery
