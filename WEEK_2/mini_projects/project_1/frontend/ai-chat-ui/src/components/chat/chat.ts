@@ -46,7 +46,7 @@ export class Chat {
     // Empty assistant message for streaming
     const assistantMessage: Message = {
       role: 'assistant',
-      content: ''
+      content: 'Thinking...'
     };
 
     this.messages.push(assistantMessage);
@@ -56,6 +56,10 @@ export class Chat {
     await this.chatService.streamResponse(
       question,
       (chunk: string) => {
+        // remove "Thinking..." placeholder on first chunk
+        if (assistantMessage.content === 'Thinking...') {
+          assistantMessage.content = '';
+        }
         assistantMessage.content += chunk;
         this.scrollToBottom();
       }

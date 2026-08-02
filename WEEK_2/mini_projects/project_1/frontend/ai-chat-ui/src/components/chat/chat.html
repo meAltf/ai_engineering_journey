@@ -1,17 +1,23 @@
-<div class="chat-container" #chatContainer>
+<div class="chat-container">
 
-    <header class="header"><b><i><u>Chat with Alataf!</u></i></b></header>
-    @for(message of messages; track $index){
-    <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
+    <!-- Header -->
+    <div class="chat-header"> AI Candidate Assistant </div>
 
-        @if(message.role === 'assistant') { <markdown [data]="message.content"></markdown> }
-        @else { {{message.content}} }
+    <!-- Messages -->
+    <div class="messages">
+
+        @for(message of messages; track $index){
+        <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'"> <markdown>{{message.content}}</markdown></div>
+        }
     </div>
-    }
-</div>
 
-<div class="input-container">
-    <input [(ngModel)]="userInput" placeholder="Ask something about me..." (keyup.enter)="sendMessage()" />
 
-    <button (click)="sendMessage()"> Send </button>
+
+    <!-- Input -->
+    <div class="input-area">
+
+        <input [(ngModel)]="userInput" placeholder="Ask something about candidate..." (keyup.enter)="sendMessage()" />
+        <button (click)="sendMessage()"> Send  </button>
+
+    </div>
 </div>
