@@ -3,6 +3,8 @@
 This repository documents my end-to-end journey of learning and building applications using Large Language Models (LLMs). The goal is to move from fundamentals to real-world production systems with a strong focus on practical implementation.
 
 ---
+* Personal-ai-assistant: https://alataf-ai.vercel.app/
+---
 
 ## Overview
 
@@ -18,8 +20,6 @@ This learning path is designed to cover:
 The focus is on building **production-ready systems**, not just theoretical understanding.
 
 ---
-
-## Personal-ai-assistant: https://alataf-ai.vercel.app/
 
 ## Learning Roadmap
 
