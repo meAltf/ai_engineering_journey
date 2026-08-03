@@ -1,5 +1,6 @@
 <div class="chat-container" #chatContainer>
 
+    <header class="header"><b><i><u>Chat with Alataf!</u></i></b></header>
     @for(message of messages; track $index){
     <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'">
 
