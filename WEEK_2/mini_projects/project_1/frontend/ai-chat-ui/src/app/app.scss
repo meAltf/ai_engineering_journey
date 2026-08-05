@@ -38,7 +38,43 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.desktop-menu-left .menu-item {
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.18s ease, transform 0.08s ease;
+}
+
+.desktop-menu-left .menu-item.active,
+.desktop-menu-left .menu-item:hover {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+/* Make topbar menu links look more like subtle pills */
+.desktop-menu-left .menu-item {
+  color: rgba(255,255,255,0.9);
+  background: transparent;
+}
+
+/* restore button shown when window is closed */
+.restore-btn {
+  margin-left: 12px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.95);
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.restore-btn:hover {
+  background: rgba(255,255,255,0.06);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .apple-logo,
@@ -98,15 +134,16 @@
   position: relative;
   display: grid;
   align-items: start;
-  grid-template-columns: 260px 1fr; /* left icons + workspace */
+  grid-template-columns: 260px minmax(520px, 1fr); /* left icons + workspace */
   gap: 32px;
-  padding: 36px;
+  padding: 48px 48px 56px 48px; /* more padding to avoid clipping */
   margin: 0 auto; /* ensure centered */
   background: radial-gradient(circle at top left, rgba(30, 45, 70, 0.92), transparent 20%),
     linear-gradient(135deg, rgba(9, 20, 40, 0.96) 30%, rgba(12, 24, 44, 0.96) 100%);
   border-radius: 28px;
   box-shadow: 0 36px 72px rgba(0, 0, 0, 0.38);
-  overflow: hidden;
+  overflow: auto; /* allow internal scrolling when content exceeds wallpaper height */
+  -webkit-overflow-scrolling: touch;
 }
 
 .desktop-icons {
@@ -117,6 +154,9 @@
   justify-content: flex-start;
   width: 100%;
   max-width: 260px;
+  overflow-y: auto; /* allow icons to scroll if many */
+  padding-right: 8px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .desktop-icon {
@@ -168,7 +208,8 @@
   display: grid;
   gap: 28px;
   align-items: start;
-  grid-template-columns: 260px 1fr; /* match wallpaper columns */
+  /* left icons fixed, right workspace gets flexible space with reasonable minimum */
+  grid-template-columns: 260px minmax(520px, 1fr);
 }
 
 .desktop-hero {
@@ -211,10 +252,35 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 720px; /* fixed width for consistent centered layout */
-  max-width: calc(100% - 48px);
-  min-width: 480px;
-  margin: 0 auto; /* center horizontally within the workspace */
+  width: 100%;
+  max-width: 720px; /* fixed max width */
+  min-width: 420px;
+  justify-self: center; /* center within the grid column */
+  transition: all 220ms ease;
+}
+
+/* hidden state */
+.desktop-window.hidden {
+  display: none;
+}
+
+/* minimized: show only header */
+.desktop-window.minimized {
+  max-height: 64px;
+}
+
+.desktop-window.minimized .window-body {
+  display: none;
+}
+
+/* maximized: expand to wallpaper area */
+.desktop-window.maximized {
+  width: calc(100% - 96px);
+  max-width: none;
+  min-width: auto;
+  height: calc(100% - 96px);
+  margin: 16px;
+  border-radius: 10px;
 }
 
 .window-header {
@@ -291,11 +357,14 @@
   display: flex;
   flex-direction: column; /* allow child to expand */
   gap: 12px;
+  overflow: auto; /* allow scrolling when content is taller */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* ensure child (app-chat / app-job-match / home-card) expand to fill */
 .window-body > * {
   flex: 1 1 auto;
+  min-height: 0; /* important for flex children to allow inner scrolling */
 }
 
 

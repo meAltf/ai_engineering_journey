@@ -15,6 +15,10 @@
       <span class="top-icon">📶</span>
       <span class="top-icon">🔍</span>
       <span class="top-time">{{ currentTime() }}</span>
+
+      @if(!windowVisible){
+        <button class="restore-btn" (click)="restoreWindow()" title="Restore window">Restore</button>
+      }
     </div>
   </header>
 
@@ -52,14 +56,14 @@
             <p class="hero-description">A clean, Mac-inspired showcase for your AI advisor experience. Ask questions about your work or evaluate a job description with the built-in Job Match tool.</p>
           </div>
 
-          <div class="desktop-window">
+          <div class="desktop-window" [class.hidden]="!windowVisible" [class.minimized]="windowMinimized" [class.maximized]="windowMaximized">
             <div class="window-header">
               <div class="window-controls">
-                <span class="control close"></span>
-                <span class="control minimize"></span>
-                <span class="control maximize"></span>
+                <span class="control close" (click)="closeWindow()" title="Close"></span>
+                <span class="control minimize" (click)="minimizeWindow()" title="Minimize"></span>
+                <span class="control maximize" (click)="toggleMaximizeWindow()" title="Maximize"></span>
               </div>
-              <div class="window-title">Alataf AI Advisor</div>
+              <div class="window-title" (dblclick)="toggleMaximizeWindow()">Alataf AI Advisor</div>
               <div class="window-tabs">
                 <button class="tab-button" [class.active]="activeTab === 'chat'" (click)="activeTab = 'chat'">Chat</button>
                 <button class="tab-button" [class.active]="activeTab === 'job'" (click)="activeTab = 'job'">Job Match</button>

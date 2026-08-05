@@ -14,6 +14,11 @@ export class App implements OnDestroy {
   // allow three tabs used in templates
   activeTab: 'home' | 'chat' | 'job' = 'home';
 
+  // window state
+  windowVisible = true;
+  windowMinimized = false;
+  windowMaximized = false;
+
   // realtime clock
   currentTime = signal(this.formatTime(new Date()));
   private _timerId: any;
@@ -37,6 +42,30 @@ export class App implements OnDestroy {
 
   toggleTheme() {
     document.body.classList.toggle('dark');
+  }
+
+  // window control handlers
+  closeWindow() {
+    this.windowVisible = false;
+  }
+
+  minimizeWindow() {
+    this.windowMinimized = true;
+    this.windowMaximized = false;
+  }
+
+  toggleMaximizeWindow() {
+    this.windowMaximized = !this.windowMaximized;
+    if (this.windowMaximized) {
+      this.windowMinimized = false;
+    }
+  }
+
+  // helper to restore from minimize (e.g., clicking title)
+  restoreWindow() {
+    this.windowMinimized = false;
+    this.windowMaximized = false;
+    this.windowVisible = true;
   }
 
   ngOnDestroy(): void {
