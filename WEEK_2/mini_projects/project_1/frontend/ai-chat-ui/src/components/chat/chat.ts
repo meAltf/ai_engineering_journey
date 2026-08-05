@@ -67,6 +67,7 @@ export class Chat {
     this.loading = false;
   }
 
+
   scrollToBottom() {
     setTimeout(() => {
       if(this.chatContainer) {

@@ -5,19 +5,23 @@
 
     <!-- Messages -->
     <div class="messages">
+<div class="chat-shell">
+  <div class="chat-container" #chatContainer>
+    <header class="header">
+      <div>
+        <strong>AI Advisor</strong>
+        <p>Ask anything about my work, skills, and projects.</p>
+      </div>
+      <span class="status">@if(loading){ Typing... }</span>
+    </header>
 
         @for(message of messages; track $index){
         <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'"> <markdown>{{message.content}}</markdown></div>
         }
     </div>
 
-
-
-    <!-- Input -->
-    <div class="input-area">
-
-        <input [(ngModel)]="userInput" placeholder="Ask something about candidate..." (keyup.enter)="sendMessage()" />
-        <button (click)="sendMessage()"> Send  </button>
-
-    </div>
+  <div class="input-container">
+    <input [(ngModel)]="userInput" placeholder="Ask something about my work..." (keyup.enter)="sendMessage()" />
+    <button [disabled]="loading" (click)="sendMessage()">Send</button>
+  </div>
 </div>

@@ -1,23 +1,92 @@
 <div class="layout">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
+  <header class="desktop-topbar">
+    <div class="desktop-menu-left">
+      <span class="apple-logo"></span>
+      <span class="browser-name">Alataf AI Advisor</span>
+      <button class="menu-item" [class.active]="activeTab === 'home'" (click)="activeTab = 'home'">Profile</button>
+      <button class="menu-item" [class.active]="activeTab === 'chat'" (click)="activeTab = 'chat'">Chat</button>
+      <button class="menu-item" [class.active]="activeTab === 'job'" (click)="activeTab = 'job'">Jobs</button>
+      <a class="menu-item" href="https://drive.google.com/uc?export=download&id=1azYU8_wbO4gzi3XVLrda3eCeCrEIHFcL" target="_blank" rel="noreferrer">Resume</a>
+    </div>
 
-        <h2 class="logo"> AI Candidate</h2>
+    <div class="desktop-menu-right">
+      <span class="top-item">95%</span>
+      <span class="top-icon">📶</span>
+      <span class="top-icon">🔍</span>
+      <span class="top-time">{{ currentTime() }}</span>
+    </div>
+  </header>
 
-        <button [class.active]="activeTab === 'chat'" (click)="activeTab = 'chat'"> Chat </button>
-        <button [class.active]="activeTab === 'job'" (click)="activeTab = 'job'"> Job Match </button>
+  <main class="desktop-main">
+    <div class="desktop-wallpaper">
 
-        <div class="spacer"></div>
-        <button (click)="toggleTheme()"> 🌙 Toggle Theme </button>
+      <aside class="desktop-icons">
+        <div class="desktop-icon">
+          <span class="icon">📁</span>
+          <span class="icon-label">AnyDrop</span>
+        </div>
+        <div class="desktop-icon">
+          <span class="icon">📄</span>
+          <a class="desktop-link icon-label" href="https://drive.google.com/uc?export=download&id=1azYU8_wbO4gzi3XVLrda3eCeCrEIHFcL" target="_blank" rel="noreferrer">Resume.pdf</a>
+        </div>
+        <div class="desktop-icon">
+          <span class="icon">📁</span>
+          <span class="icon-label">CoinInsight Dashboard</span>
+        </div>
+        <div class="desktop-icon">
+          <span class="icon">📁</span>
+          <span class="icon-label">Frog Safari</span>
+        </div>
+        <div class="desktop-icon">
+          <span class="icon">📁</span>
+          <span class="icon-label">Premate</span>
+        </div>
+      </aside>
 
-    </aside>
+      <section class="desktop-stage">
+        <div class="desktop-workspace">
+          <div class="desktop-hero">
+            <span class="hero-label">Professional AI Portfolio</span>
+            <h1>Alataf’s Portfolio</h1>
+            <p class="hero-description">A clean, Mac-inspired showcase for your AI advisor experience. Ask questions about your work or evaluate a job description with the built-in Job Match tool.</p>
+          </div>
 
-    <!-- Main -->
-    <main class="main">
+          <div class="desktop-window">
+            <div class="window-header">
+              <div class="window-controls">
+                <span class="control close"></span>
+                <span class="control minimize"></span>
+                <span class="control maximize"></span>
+              </div>
+              <div class="window-title">Alataf AI Advisor</div>
+              <div class="window-tabs">
+                <button class="tab-button" [class.active]="activeTab === 'chat'" (click)="activeTab = 'chat'">Chat</button>
+                <button class="tab-button" [class.active]="activeTab === 'job'" (click)="activeTab = 'job'">Job Match</button>
+              </div>
+            </div>
 
-        @if(activeTab === 'chat'){ <app-chat></app-chat> }
-        @if(activeTab === 'job'){ <app-job-match></app-job-match>  }
-    </main>
+            <div class="window-body">
+              @if(activeTab === 'chat'){
+                <app-chat></app-chat>
+              }
+              @if(activeTab === 'job'){
+                <app-job-match></app-job-match>
+              }
+              @if(activeTab === 'home'){
+                <div class="hero-card home-card">
+                  <p>Start your conversation with Alataf's AI Advisor or analyze a job description right away.</p>
+                  <div class="home-actions">
+                    <button class="hero-cta" (click)="activeTab = 'chat'">Open Chat</button>
+                    <button class="hero-cta secondary" (click)="activeTab = 'job'">Job Match</button>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 
 </div>
