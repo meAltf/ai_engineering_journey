@@ -1,27 +1,27 @@
-<div class="chat-container">
-
-    <!-- Header -->
-    <div class="chat-header"> AI Candidate Assistant </div>
-
-    <!-- Messages -->
-    <div class="messages">
 <div class="chat-shell">
-  <div class="chat-container" #chatContainer>
+  <!-- Top header inside the component -->
+  <div class="chat-header">AI Candidate Assistant</div>
+
+  <div class="chat-window">
     <header class="header">
-      <div>
+      <div class="title">
         <strong>AI Advisor</strong>
         <p>Ask anything about my work, skills, and projects.</p>
       </div>
-      <span class="status">@if(loading){ Typing... }</span>
+      <span class="status" *ngIf="loading">Typing...</span>
     </header>
 
-        @for(message of messages; track $index){
-        <div class="message" [class.user]="message.role === 'user'" [class.assistant]="message.role === 'assistant'"> <markdown>{{message.content}}</markdown></div>
-        }
+    <!-- Messages area (scrollable) -->
+    <div class="messages" #chatContainer>
+      <div *ngFor="let message of messages; let i = index" class="message" [ngClass]="{user: message.role === 'user', assistant: message.role === 'assistant'}">
+        <markdown [data]="message.content"></markdown>
+      </div>
     </div>
 
-  <div class="input-container">
-    <input [(ngModel)]="userInput" placeholder="Ask something about my work..." (keyup.enter)="sendMessage()" />
-    <button [disabled]="loading" (click)="sendMessage()">Send</button>
+    <!-- Input area -->
+    <div class="input-area">
+      <input [(ngModel)]="userInput" placeholder="Ask something about my work..." (keyup.enter)="sendMessage()" />
+      <button class="send-btn" [disabled]="loading" (click)="sendMessage()">Send</button>
+    </div>
   </div>
 </div>

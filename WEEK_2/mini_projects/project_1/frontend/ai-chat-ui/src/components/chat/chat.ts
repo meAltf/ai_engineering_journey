@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { ChatService } from '../../services/chat.service';
 import { MarkdownModule } from 'ngx-markdown';
 
@@ -12,6 +13,7 @@ interface Message {
   selector: 'app-chat',
   standalone: true,
   imports: [
+    CommonModule,
     FormsModule,
     MarkdownModule
   ],

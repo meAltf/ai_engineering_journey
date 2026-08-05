@@ -2,7 +2,19 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Dark app background to match the centered wallpaper */
+  background: radial-gradient(circle at 10% 10%, rgba(18,28,44,0.95), rgba(8,14,22,0.96) 40%),
+              radial-gradient(circle at 90% 90%, rgba(10,18,30,0.92), rgba(6,12,20,0.98) 60%);
+  color: #e6eef8;
+  min-height: 100vh;
+}
+
+/* Ensure the page doesn't show white edges on very wide screens */
+html, body {
+  background-color: #071025;
 }
 
 /* Dark Theme */
