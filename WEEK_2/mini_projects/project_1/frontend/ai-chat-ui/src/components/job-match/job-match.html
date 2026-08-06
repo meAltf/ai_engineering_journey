@@ -4,7 +4,7 @@
 
     <textarea [(ngModel)]="jobDescription" placeholder="Paste Job Description here..."></textarea>
 
-    <button (click)="analyze()">Analyze</button>
+    <button class="analyze-button" (click)="analyze()">Analyze</button>
 
     @if(loading){
     <p>Analyzing...</p>
