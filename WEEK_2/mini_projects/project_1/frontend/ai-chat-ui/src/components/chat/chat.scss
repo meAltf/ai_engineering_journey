@@ -75,24 +75,30 @@
 }
 /* message bubbles */
 .message {
-  max-width: 78%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  line-height: 1.4;
+  display: inline-flex;
+  flex-direction: column;
+  width: auto;
+  max-width: min(78%, 520px);
+  padding: 12px 16px;
+  border-radius: 18px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
   word-break: break-word;
-  box-shadow: 0 2px 6px rgba(2,6,23,0.08);
+  white-space: pre-wrap;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
 
 .message.user {
   align-self: flex-end;
-  background: linear-gradient(90deg,#2b6ef6,#1e4fd6);
-  color: #fff;
+  background: linear-gradient(135deg, #2b6ef6 0%, #2563eb 100%);
+  color: #ffffff;
 }
 
 .message.assistant {
   align-self: flex-start;
-  background: rgba(243,244,246,0.9);
-  color: #0f172a;
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* input area */
