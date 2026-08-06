@@ -253,9 +253,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 720px; /* fixed max width */
-  min-width: 420px;
+  width: min(1120px, 100%);
+  max-width: 1120px;
+  min-width: auto;
   justify-self: center; /* center within the grid column */
   transition: all 220ms ease;
 }
@@ -354,7 +354,7 @@
 
 .window-body {
   padding: 20px;
-  min-height: 520px;
+  min-height: 640px;
   display: flex;
   flex-direction: column; /* allow child to expand */
   gap: 12px;
@@ -362,10 +362,110 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* ensure child (app-chat / app-job-match / home-card) expand to fill */
+/* ensure child (assistant-shell) expands to fill */
 .window-body > * {
   flex: 1 1 auto;
-  min-height: 0; /* important for flex children to allow inner scrolling */
+}
+
+.assistant-shell {
+  display: flex;
+  gap: 24px;
+  height: 100%;
+}
+
+.assistant-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 260px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 24px;
+}
+
+.assistant-side-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.assistant-avatar {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(16, 185, 129, 0.18);
+  color: #d6fde5;
+  font-weight: 700;
+}
+
+.assistant-name {
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+}
+
+.assistant-title {
+  font-size: 0.86rem;
+  color: rgba(255,255,255,0.72);
+}
+
+.new-chat-btn,
+.tool-item,
+.history-item {
+  width: 100%;
+  border: none;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.92);
+  padding: 12px 14px;
+  border-radius: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.new-chat-btn {
+  font-weight: 700;
+}
+
+.new-chat-btn:hover,
+.tool-item:hover,
+.history-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.section-title {
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.66);
+  margin-bottom: 8px;
+}
+
+.assistant-section {
+  display: grid;
+  gap: 10px;
+}
+
+.history-item.active {
+  background: rgba(255,255,255,0.12);
+}
+
+.assistant-status {
+  margin-top: auto;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  padding: 12px 14px;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.9rem;
+}
+
+.assistant-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
 }
 
 

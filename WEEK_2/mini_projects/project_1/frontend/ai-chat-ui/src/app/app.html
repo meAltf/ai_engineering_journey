@@ -71,21 +71,54 @@
             </div>
 
             <div class="window-body">
-              @if(activeTab === 'chat'){
-                <app-chat></app-chat>
-              }
-              @if(activeTab === 'job'){
-                <app-job-match></app-job-match>
-              }
-              @if(activeTab === 'home'){
-                <div class="hero-card home-card">
-                  <p>Start your conversation with Alataf's AI Advisor or analyze a job description right away.</p>
-                  <div class="home-actions">
-                    <button class="hero-cta" (click)="activeTab = 'chat'">Open Chat</button>
-                    <button class="hero-cta secondary" (click)="activeTab = 'job'">Job Match</button>
+              <div class="assistant-shell">
+                <aside class="assistant-sidebar">
+                  <div class="assistant-side-header">
+                    <div class="assistant-avatar">A</div>
+                    <div>
+                      <div class="assistant-name">Candidate AI</div>
+                      <div class="assistant-title">Alataf Advisor</div>
+                    </div>
                   </div>
+
+                  <button class="new-chat-btn" (click)="activeTab = 'chat'">+ New chat</button>
+
+                  <div class="assistant-section">
+                    <div class="section-title">AI Tools</div>
+                    <button class="tool-item">Upload new resume</button>
+                    <button class="tool-item">Interview questions</button>
+                    <button class="tool-item">Job match score</button>
+                    <button class="tool-item">Why hire this candidate?</button>
+                    <button class="tool-item">Export chat as PDF</button>
+                    <button class="tool-item">Download current resume</button>
+                  </div>
+
+                  <div class="assistant-section">
+                    <div class="section-title">Conversation History</div>
+                    <button class="history-item active">New conversation</button>
+                  </div>
+
+                  <div class="assistant-status">AI representative online</div>
+                </aside>
+
+                <div class="assistant-content">
+                  @if(activeTab === 'chat'){
+                    <app-chat></app-chat>
+                  }
+                  @if(activeTab === 'job'){
+                    <app-job-match></app-job-match>
+                  }
+                  @if(activeTab === 'home'){
+                    <div class="hero-card home-card">
+                      <p>Start your conversation with Alataf's AI Advisor or analyze a job description right away.</p>
+                      <div class="home-actions">
+                        <button class="hero-cta" (click)="activeTab = 'chat'">Open Chat</button>
+                        <button class="hero-cta secondary" (click)="activeTab = 'job'">Job Match</button>
+                      </div>
+                    </div>
+                  }
                 </div>
-              }
+              </div>
             </div>
           </div>
         </div>
