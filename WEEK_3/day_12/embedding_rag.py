@@ -1,16 +1,28 @@
-import os
-from pathlib import Path
-from dotenv import load_dotenv
-from groq import Groq
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
-# Retrieve necessary information from .env
+# using transformer & numpy library directly no llm call
 
-load_dotenv()
+# cosine similarity
+def cosine_similarity(a,b):
+    similarity =  np.dot(a,b)/(np.linalg.norm(a) * np.linalg.norm(b))
+    return similarity
 
-my_api_key = os.getenv("GROQ_API_KEY")
+# this model has 384 vector size means features map
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
-if not my_api_key:
-    raise ValueError(f"""There is no api key mentioned in env file with name: {my_api_key}""")
+text_1 = "Working as a Data scientist"
 
-my_client = Groq(api_key = my_api_key)
-my_model = "llama-3.3-70b-versatile"
+embedding = model.encode(text_1)
+# print(embedding[:15])
+# print(embedding.shape)
+
+
+text_2 = "I hate Pizza because of high calories."
+text_3 = "cricket is a not a national match"
+
+vector_1 = model.encode(text_2)
+vector_2 = model.encode(text_3)
+
+cosine_sim = cosine_similarity(vector_1, vector_2)
+print(cosine_sim)
