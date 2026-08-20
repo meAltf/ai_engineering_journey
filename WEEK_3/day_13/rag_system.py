@@ -13,7 +13,7 @@ if not my_api_key:
     raise ValueError(f"""There is no api key mentioned in env file with name: {my_api_key}""")
 
 my_client = Groq(api_key = my_api_key)
-model_groq = "llama-3.3-70b-versatile"
+model_groq = "openai/gpt-oss-120b"
 
 def ask_llm(question,context):
 
