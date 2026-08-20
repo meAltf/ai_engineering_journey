@@ -27,3 +27,12 @@
     - It takes more time to analyze(means creating cosine-similarity, embeddings) for everytime we run the application
     - Not persistence (during applicaton run if something crashed then again from start needs embeddigns for our knowdlge base)
     - Storage issue (we can't store GBs of knowdge base in application itself)
+
+## Quadrant-DB | free to use, easy to use 
+    - A vector DB
+    - Tables - Collections,  vectos - Arrays[384] or [more]
+    - column - Point
+    - point: 
+        - Id {111}
+        - Vector [-1.6, 2.7, -0.678, ....] |  vector got after embedding
+        - Payload {"Alataf is a data scientist.} | actual sentence on which we've applied embedding so that we get the vector
