@@ -99,7 +99,7 @@ for i in range(len(documents)):
         payload = documents[i]
     )
 
-    print(f'Generated point: {point}')
+    # print(f'Generated point: {point}')
     created_points.append(point)
 
 
@@ -164,12 +164,13 @@ reimbursement_filter = Filter(
 # PART 9 — TEST SEARCH
 # ============================================================
 
-query = "How many vacation days i get?"
+query = "How much return money i get?"
 
 results = search_with_filter(query, reimbursement_filter, top_result = 4)
 print("\nSearch results:")
 
 for result in results:
+    print(f'version: {result.version}')
     print(f'Score: {result.score:.3f}')
     print(result.payload["text"])
     print()
@@ -194,6 +195,7 @@ def ask_llm(question, context):
 
     If the answer is not present in the context, say:
     "I don't know based on the provided information in RAG!"
+    Also don't include the '*' symbol while giving response. and If response contains money then add ruppes symbol.
     '''
 
     llm_response = groq_client.chat.completions.create(
@@ -213,9 +215,9 @@ def ask_llm(question, context):
 # PART 12 — COMPLETE RAG PIPELINE
 # ============================================================
 
-question = "How many vacaion days i get?"
+question = "How much return money i get?"
 
-results = search(question, top_result=3)
+results = search_with_filter(question, reimbursement_filter, top_result = 4)
 
 # Extract text from the search results
 context = "\n".join(
