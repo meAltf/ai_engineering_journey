@@ -92,11 +92,11 @@ print(f'Embedding size: {len(embeddings[0])}')
 
 created_points = []
 
-for i in range(len(documents)):
+for i, doc in enumerate(documents):
     point = PointStruct(
         id = i+1,
         vector = embeddings[i].tolist(),
-        payload = documents[i]
+        payload = doc
     )
 
     # print(f'Generated point: {point}')
