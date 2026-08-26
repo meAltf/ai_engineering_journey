@@ -220,10 +220,13 @@ question = "How much return money i get?"
 results = search_with_filter(question, reimbursement_filter, top_result = 4)
 
 # Extract text from the search results
-context = "\n".join(
-    result.payload["text"]
-    for result in results
-)
+context = ""
+for result in results:
+    text = result.payload["text"]
+    context += text + "\n"
+
+# for context in context.splitlines():
+#     print(f"context lines: {context} ")
 
 final_answer = ask_llm(question, context)
 
