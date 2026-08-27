@@ -5,12 +5,13 @@ paths:
   input_dir: input
   audio_dir: audio
   output_dir: output
-  logs_dir: logs
+  log_dir: logs
 
 youtube:
   urls:
-    - "https://www.youtube.com/watch?v=ruxb9RjAv4E&list=PLW4OpyGE0RdY"
-    - "https://www.youtube.com/watch?v=Vl2WcqdizZ0&list=PLW4OpyGE0RdY"
-    - "https://www.youtube.com/watch?v=aF0IK2sIQyY&list=PLW4OpyGE0RdY"
-    - "https://www.youtube.com/watch?v=e7oU6ZCvRrw&list=PLW4OpyGE0RdY"
-    - "https://www.youtube.com/watch?v=j7Re_09T-co&list=PLW4OpyGE0RdY"
+    # - "https://www.youtube.com/watch?v=ruxb9RjAv4E&list=PLW4OpyGE0RdY"
+    - https://www.youtube.com/watch?v=ahaLgJr3HcU&list=PLW4OpyGE0RdY
+    # - "https://www.youtube.com/watch?v=Vl2WcqdizZ0&list=PLW4OpyGE0RdY"
+    # - "https://www.youtube.com/watch?v=aF0IK2sIQyY&list=PLW4OpyGE0RdY"
+    # - "https://www.youtube.com/watch?v=e7oU6ZCvRrw&list=PLW4OpyGE0RdY"
+    # - "https://www.youtube.com/watch?v=j7Re_09T-co&list=PLW4OpyGE0RdY"

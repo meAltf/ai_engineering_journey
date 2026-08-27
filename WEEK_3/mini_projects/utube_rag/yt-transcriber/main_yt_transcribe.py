@@ -28,7 +28,10 @@ def main():
         try:
             logger.info(f"[{i}] Processing: {url}")
 
-            audio_path = download_audio(url, config["paths"]["audio_dir"])
+            clean_url = url.split("&list=")[0]
+            print(f"After cleaning the url: {clean_url}")
+            
+            audio_path = download_audio(clean_url, config["paths"]["audio_dir"])
             text = transcribe(model, audio_path)
 
             filename = f"video_{i}"
@@ -40,3 +43,6 @@ def main():
             logger.error(f"Failed for {url}: {str(e)}")
 
     logger.info("Batch processing completed")
+
+if __name__ == "__main__":
+    main()

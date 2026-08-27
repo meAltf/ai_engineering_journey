@@ -1,6 +1,9 @@
 import os
 
 def save_text(text, output_dir, filename):
+    
+    print("Started saving text...")
+
     os.makedirs(output_dir, exist_ok=True)
 
     file_path = os.path.join(output_dir, filename + ".txt")
@@ -8,4 +11,6 @@ def save_text(text, output_dir, filename):
     with open(file_path, "w") as f:
         f.write(text)
 
+    print("Completed saving text...")
+    
     return file_path
