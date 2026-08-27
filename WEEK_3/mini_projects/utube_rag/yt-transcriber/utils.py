@@ -1,16 +1,6 @@
-import os
+import re
 
-def save_text(text, output_dir, filename):
-    
-    print("Started saving text...")
 
-    os.makedirs(output_dir, exist_ok=True)
-
-    file_path = os.path.join(output_dir, filename + ".txt")
-
-    with open(file_path, "w") as f:
-        f.write(text)
-
-    print("Completed saving text...")
-    
-    return file_path
+def extract_video_id(url):
+    match = re.search(r"v=([^&]+)", url)
+    return match.group(1) if match else "unknown"

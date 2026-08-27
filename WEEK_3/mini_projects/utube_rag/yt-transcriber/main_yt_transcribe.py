@@ -1,9 +1,10 @@
 import yaml
 import os
+
 from logger import setup_logger
-from downloader import download_audio
-from transcriber import load_model, transcribe
-from utils import save_text
+from downloader import download_audio, split_audio
+from transcriber import load_model, transcribe_chunks, save_json
+from utils import extract_video_id
 
 
 def load_config():
@@ -22,27 +23,42 @@ def main():
 
     urls = config["youtube"]["urls"]
 
-    logger.info(f"Starting batch processing: {len(urls)} videos")
+    logger.info(f"Processing {len(urls)} videos")
 
     for i, url in enumerate(urls, 1):
         try:
             logger.info(f"[{i}] Processing: {url}")
 
+            # clean playlist part
             clean_url = url.split("&list=")[0]
-            print(f"After cleaning the url: {clean_url}")
-            
+
+            video_id = extract_video_id(clean_url)
+
+            # Step 1: Download
             audio_path = download_audio(clean_url, config["paths"]["audio_dir"])
-            text = transcribe(model, audio_path)
 
-            filename = f"video_{i}"
-            saved_path = save_text(text, config["paths"]["output_dir"], filename)
+            # Step 2: Split
+            chunk_dir = f"chunks/{video_id}"
+            chunks = split_audio(audio_path, chunk_dir)
 
-            logger.info(f"Saved: {saved_path}")
+            # Step 3: Transcribe
+            results = transcribe_chunks(model, chunks, video_id)
+
+            # Step 4: Save JSON
+            output_file = os.path.join(
+                config["paths"]["output_dir"],
+                f"{video_id}.json"
+            )
+
+            save_json(results, output_file)
+
+            logger.info(f"Done: {video_id}")
 
         except Exception as e:
             logger.error(f"Failed for {url}: {str(e)}")
 
-    logger.info("Batch processing completed")
+    logger.info("All videos processed!")
+
 
 if __name__ == "__main__":
     main()

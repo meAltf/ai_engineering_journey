@@ -1,0 +1,21 @@
+2026-08-27 22:32:17,363 [INFO] HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-small/revision/main "HTTP/1.1 200 OK"
+2026-08-27 22:32:18,196 [INFO] Processing 1 videos
+2026-08-27 22:32:18,196 [INFO] [1] Processing: https://www.youtube.com/watch?v=HDHQ8lAWakY
+2026-08-27 22:32:29,674 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:32:30,478 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:32:41,494 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:32:42,207 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:32:56,303 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:32:57,030 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:33:14,110 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:33:14,831 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:33:23,055 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:33:23,791 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:33:33,342 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:33:34,108 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:33:43,812 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:33:44,606 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:33:54,213 [INFO] Processing audio with duration 00:00.751
+2026-08-27 22:33:55,023 [INFO] Detected language 'en' with probability 0.50
+2026-08-27 22:33:56,088 [INFO] Done: HDHQ8lAWakY
+2026-08-27 22:33:56,088 [INFO] All videos processed!

@@ -1,20 +1,41 @@
 from faster_whisper import WhisperModel
+import json
+
 
 def load_model(model_name="small", compute_type="int8"):
+    print("Loading Whisper model...")
     return WhisperModel(model_name, compute_type=compute_type)
 
 
-def transcribe(model, audio_path):
+def transcribe_chunks(model, chunks, video_id):
+    print("Transcribing chunks...")
 
-    print("Started transcribing of videos...")
+    results = []
 
-    segments, _ = model.transcribe(audio_path, beam_size=5)
+    for i, chunk in enumerate(chunks):
+        start_time = i * 75
+        end_time = start_time + 75
 
-    text = ""
-    for seg in segments:
-        print(f"[{seg.start:.2f}s → {seg.end:.2f}s] {seg.text}")
-        text += seg.text + "\n"
+        print(f"Processing chunk {i+1} ({start_time}s - {end_time}s)")
 
-    print("Completed transcribing of videos...")
+        segments, _ = model.transcribe(chunk)
 
-    return text
+        text = " ".join([seg.text for seg in segments]).strip()
+
+        results.append({
+            "video_id": video_id,
+            "start": start_time,
+            "end": end_time,
+            "text": text
+        })
+
+    print("Transcription completed")
+
+    return results
+
+
+def save_json(data, output_path):
+    with open(output_path, "w") as f:
+        json.dump(data, f, indent=2)
+
+    print(f"Saved JSON: {output_path}")
