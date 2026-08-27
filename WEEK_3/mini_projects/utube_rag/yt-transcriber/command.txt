@@ -1,0 +1,14 @@
+1. Create clean Conda env:
+    - conda create -n ytwhisper python=3.10 -y
+
+2. Activate env
+    - conda activate ytwhisper
+
+3. Install requird tool
+    - uv init
+    - uv venv --python 3.11
+    - source .venv/bin/activate - not required
+    - uv add yt-dlp faster-whisper ffmpeg-python pyyaml rich
+
+4. Install system ffmpeg:
+    - brew install ffmpeg
