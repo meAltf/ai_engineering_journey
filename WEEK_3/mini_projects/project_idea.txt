@@ -1,0 +1,22 @@
+RAG-project: 
+
+1. Source: [ any DSA playlist or striver or other utube videos ]
+
+2. Need to download audio of those videos -> convert those into TEXTs
+	- yt-dlp: Download audio
+	- whisper/mpire : to convert audio into texts
+	- Note converting into text requires GPU
+	- NOTE: while extracting audio, maintain the video id & timestamps
+		- chunk1 - the best way to start dsa 00:00
+		- chunk2 - the best way to start dsa 01:15
+
+3. Once got text, let’s first perform the chunking
+	- can be chunking 75 secs interval
+
+4. Do embeddings [ using minillm ]
+
+5. Quadrant DB upload
+
+6. You questions -> converted into text
+
+7. Now call llm and do the rest….

@@ -1,0 +1,48 @@
+---------    STEPS | High Level Flow   ------------------
+
+YouTube Video
+     ↓
+Audio Extraction (yt-dlp)
+     ↓
+Speech → Text (Whisper)
+     ↓
+Chunking (with timestamps)
+     ↓
+Embeddings (MiniLM)
+     ↓
+Store in Vector DB (Qdrant)
+     ↓
+User Question
+     ↓
+Embedding → Search → Context
+     ↓
+LLM → Answer
+     ↓
+Show on UI
+
+
+--------- Detailed Architecture Diagram ----------------------
+
+                ┌──────────────┐
+                │ YouTube URLs │
+                └──────┬───────┘
+                       ↓
+                yt-dlp (audio)
+                       ↓
+                Whisper (text)
+                       ↓
+            ┌────────────────────────┐
+            │ Chunking + timestamps  │
+            └────────┬───────────────┘
+                    ↓
+                Embeddings (MiniLM)
+                    ↓
+                ┌──────────────┐
+                │ Qdrant DB    │
+                └──────┬───────┘
+                    ↓
+                FastAPI Backend
+                    ↓
+            ┌────────────────────┐
+            │ Angular Chat UI    │
+            └────────────────────┘
