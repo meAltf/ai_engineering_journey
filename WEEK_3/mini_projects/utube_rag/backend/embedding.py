@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer
 import json
 from pathlib import Path
+import uuid
 
 
 # Load model
@@ -25,7 +26,7 @@ for file in DATA_PATH.glob("*.json"):
         # List of chunks
         for chunk in data:
             documents.append({
-                "id": f"{chunk['video_id']}_{chunk['start']}",
+                "id": str(uuid.uuid5(uuid.NAMESPACE_DNS,f"{chunk['video_id']}_{chunk['start']}")),
                 "video_id": chunk["video_id"],
                 "start": chunk["start"],
                 "end": chunk["end"],
