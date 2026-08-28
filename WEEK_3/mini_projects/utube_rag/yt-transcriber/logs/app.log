@@ -1,21 +1,113 @@
-2026-08-27 22:32:17,363 [INFO] HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-small/revision/main "HTTP/1.1 200 OK"
-2026-08-27 22:32:18,196 [INFO] Processing 1 videos
-2026-08-27 22:32:18,196 [INFO] [1] Processing: https://www.youtube.com/watch?v=HDHQ8lAWakY
-2026-08-27 22:32:29,674 [INFO] Processing audio with duration 01:14.977
-2026-08-27 22:32:30,478 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:32:41,494 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:32:42,207 [INFO] Detected language 'en' with probability 0.99
-2026-08-27 22:32:56,303 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:32:57,030 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:33:14,110 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:33:14,831 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:33:23,055 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:33:23,791 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:33:33,342 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:33:34,108 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:33:43,812 [INFO] Processing audio with duration 01:14.989
-2026-08-27 22:33:44,606 [INFO] Detected language 'en' with probability 1.00
-2026-08-27 22:33:54,213 [INFO] Processing audio with duration 00:00.751
-2026-08-27 22:33:55,023 [INFO] Detected language 'en' with probability 0.50
-2026-08-27 22:33:56,088 [INFO] Done: HDHQ8lAWakY
-2026-08-27 22:33:56,088 [INFO] All videos processed!
+2026-08-27 22:46:51,338 [INFO] HTTP Request: GET https://huggingface.co/api/models/Systran/faster-whisper-small/revision/main "HTTP/1.1 200 OK"
+2026-08-27 22:46:52,175 [INFO] Processing 6 videos
+2026-08-27 22:46:52,175 [INFO] [1] Processing: https://www.youtube.com/watch?v=HDHQ8lAWakY
+2026-08-27 22:47:08,028 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:47:08,780 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:47:19,865 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:47:20,571 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:47:33,151 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:47:33,888 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:47:49,809 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:47:50,570 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:47:58,948 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:47:59,688 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:48:09,370 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:48:10,148 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:48:20,242 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:48:21,033 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:48:30,403 [INFO] Processing audio with duration 00:00.751
+2026-08-27 22:48:31,203 [INFO] Detected language 'en' with probability 0.50
+2026-08-27 22:48:32,148 [INFO] Done: HDHQ8lAWakY
+2026-08-27 22:48:32,148 [INFO] [2] Processing: https://www.youtube.com/watch?v=tZAa_jJ3SwQ
+2026-08-27 22:48:44,518 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:48:45,323 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:48:55,363 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:48:56,177 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:49:05,699 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:49:06,510 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:49:40,835 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:49:41,696 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:49:51,948 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:49:52,880 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:50:04,001 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:50:04,943 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:50:18,508 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:50:19,579 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:50:31,095 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:50:32,540 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:50:42,391 [INFO] Processing audio with duration 00:52.365
+2026-08-27 22:50:43,347 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:50:51,440 [INFO] Done: tZAa_jJ3SwQ
+2026-08-27 22:50:51,440 [INFO] [3] Processing: https://www.youtube.com/watch?v=3-QbX1iDbXs
+2026-08-27 22:51:04,692 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:51:06,069 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:51:16,458 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:51:17,459 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:51:28,963 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:51:30,088 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:51:42,103 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:51:43,006 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:51:55,880 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:51:56,880 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:52:09,989 [INFO] Processing audio with duration 01:04.671
+2026-08-27 22:52:11,001 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:52:20,585 [INFO] Done: 3-QbX1iDbXs
+2026-08-27 22:52:20,585 [INFO] [4] Processing: https://www.youtube.com/watch?v=n_tmibEhO6Q
+2026-08-27 22:52:33,700 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:52:34,534 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:52:45,655 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:52:46,565 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:52:57,610 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:52:58,516 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:53:37,107 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:53:38,010 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:53:48,897 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:53:49,903 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:54:03,594 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:54:04,537 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:54:17,092 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:54:18,037 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:54:29,477 [INFO] Processing audio with duration 00:14.148
+2026-08-27 22:54:30,426 [INFO] Detected language 'en' with probability 0.98
+2026-08-27 22:54:32,529 [INFO] Done: n_tmibEhO6Q
+2026-08-27 22:54:32,529 [INFO] [5] Processing: https://www.youtube.com/watch?v=DIX2p7vb9co
+2026-08-27 22:54:45,414 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:54:46,326 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:55:18,792 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:55:19,950 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:55:35,688 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:55:36,614 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:55:48,064 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:55:49,063 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:56:00,481 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:56:01,413 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:56:13,878 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:56:14,827 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:56:28,175 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:56:29,098 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:56:40,183 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:56:41,117 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:56:50,772 [INFO] Processing audio with duration 00:50.572
+2026-08-27 22:56:51,734 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:57:00,229 [INFO] Done: DIX2p7vb9co
+2026-08-27 22:57:00,229 [INFO] [6] Processing: https://www.youtube.com/watch?v=pBWCOCS636U
+2026-08-27 22:57:36,781 [INFO] Processing audio with duration 01:14.977
+2026-08-27 22:57:37,627 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:57:50,856 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:57:51,666 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:58:03,492 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:58:04,351 [INFO] Detected language 'en' with probability 0.99
+2026-08-27 22:58:15,861 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:58:16,726 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:58:29,889 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:58:31,134 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:58:45,238 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:58:46,163 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:58:57,904 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:58:58,850 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:59:12,313 [INFO] Processing audio with duration 01:14.989
+2026-08-27 22:59:13,232 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:59:24,769 [INFO] Processing audio with duration 01:12.375
+2026-08-27 22:59:25,690 [INFO] Detected language 'en' with probability 1.00
+2026-08-27 22:59:35,095 [INFO] Done: pBWCOCS636U
+2026-08-27 22:59:35,096 [INFO] All videos processed!

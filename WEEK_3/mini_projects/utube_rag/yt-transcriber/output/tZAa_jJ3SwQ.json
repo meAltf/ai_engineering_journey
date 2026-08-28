@@ -1,0 +1,56 @@
+[
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 0,
+    "end": 75,
+    "text": "So, let's continue with our greedy algorithms playlist ready for that, here we have a Mac  to the channel I hope you guys are doing extremely well, so the problem that we will be solving  today is jump game, so you will be given an array which will have integers and the problem  is stating we will be standing at the first element and every element tells you how much  maximum you can jump for an example if there is two over here it means you can jump to this  place or you can jump to this place not beyond it not beyond two places if there is three  you can jump here you can jump here you can jump here and the problem is asking you  if you are starting at the first element can you reach the last element by jumping  let's try it out over over here we have two right which means I can take a jump of two a  maximum jump of two so if I go here there is a jump of one so I will go here and I cannot  jump further which means I cannot the question is stating maximum that you can take as a"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 75,
+    "end": 150,
+    "text": "the maximum instead I'll jump by one place and from here I'll jump three places so eventually  I can reach the end hence true possible okay let's try out the other example I'm standing  over here I'm standing over here okay can I reach the end let's try it out if I start  from here I can either reach here I can either reach here I can either reach here  from two I can either reach here I can either reach here from one I can only reach here  you can try out all possible ways but I'm not able to cross zero I am not able to cross zero  forget about the last I cannot cross zero thereby I cannot reach if I cannot reach I'll  I'll be returning across in this example I can go here I can go here from three I can go here  from here here so eventually I can reach the last right it's important that you can cross the zero  right so this is what you'll have to do given an array you have to tell me if you can reach the end  or not how do I solve this problem let's take this example"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 150,
+    "end": 225,
+    "text": "If I start from 1, where can I reach?  I can reach this place.  The maximum that I can reach is this place.  If I start from 2, I can either go to this or I can either go to this one.  Perfect.  If I start from 3, I can either go to this one or I can either go to this one or I  can either go to this one.  Perfect.  If I start from 1, I can either go to this one, I can only go to that one.  If I start from this one, I can go to this one.  From zero, I cannot go to anywhere.  If I cannot go from zero, if I cannot go anywhere, I stop then and there, because I'm not able  to reach here.  I tried all possible combos.  You can try out all possible combos.  You cannot cross zero, thereby, it is not possible, thereby, it is not possible.  Let's change these examples and try out one more example.  I'll change this three, two, four.  Okay, now let's try out.  From here, I can go here.  From two, I can go here or I can go here.  From four, I can go here, here, here."
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 225,
+    "end": 300,
+    "text": "and here as well okay from one I can go here from one I can go here from zero I  don't need to go any more from two I can either go here or I can either go here so  what I can see is I can actually reach the end if I take this pattern sorry my  bad if I take this pattern this pattern and then this and then this can  actually reach the end so it is typically possible at any one thing did  you observe something what if the arrays don't have a zero what if the arrays  don't have a zero for that case it'll always be able to reach the end if the  array just has positive integers it'll keep jumping will keep jumping there is  no stopping us right and we will be able to reach the end for every possible  scenario right okay so how do I solve this particular problem it's going to  be super simple the only thing I have to see is whenever I'm reaching an index  whenever I'm reaching an index was did someone reach me did someone reach me  for an example the one reached here two reached here at max four reached here  so when you add to"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 300,
+    "end": 375,
+    "text": "can come here so someone did touch you someone did touch you got it that's what my intention  would be and if there was a three here no one would have touched two no one would have touched  two that means you cannot reach there you cannot reach there let's let's see how I can solve this  what we will do is we'll say okay what is the max index till which we have gone till now  initially at zero so we haven't gone anywhere okay perfect so we're standing it here and we are at  this place so over here we have one one place we can jump so the max we can go is till one  not beyond it perfect next we come to this index we come to this index and ease out understanding  of right down the index numbers so we add two from here where can I go two places more  two places more I'm standing at one I can go to two places more which makes it to the index  three to the index three so the max I can go is to the index three perfect next I can go to four  four means I'm standing at the second index two plus four is six I can go a max of six I can go  max of six"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 375,
+    "end": 450,
+    "text": "Perfect, next, I am standing at 3, I can go at 1 which is 4, no need to update max because  I can still reach 6, I can still reach 6, perfect, next, I can go to this one which  is a 1, I am standing at 4, 4 plus 1 is 5 and I can still reach 6, so I don't care,  I don't care, I am at 0, 5 plus 0 is 5, I can still reach 6, I don't care, next, I have  a 2, 6 plus 2 is 8 and you can stop over there, you can stop over there because you have somehow  crossed this and if you have crossed this that means you can definitely reach the index  7, you can definitely reach the index 7, so I will just go back, I will change the example  so that you understand when is it not possible, so we stand over here, we stand over here, and  I can erase this and I can convert this to 3, now let's understand how this works out,  so we are standing at 1, so the max that I can reach is..."
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 450,
+    "end": 525,
+    "text": "the index 0 plus 1 which is 1  okay perfect next  I have a 2 so the max I can reach is 1 plus  1 plus 2 which is 3 which is 1 plus 2 is 3  next I can go to the next which is 3  so I can go from 2 plus 3 which is 5  okay the next is 1  3 plus 1 is 4 I don't care  next is 4 I can go at max 1  so that's a 5 I don't care I've already reached 5  next I reach 5 I plus 0 is 5 I don't care  next I reach 6 and this is where I say hey wait  wait wait wait the max you were able to reach was 5  how did you come here as a person you cannot deny  you cannot unnusted return false return false  simple rate so I have to write down the code  again I'll be writing down the pseudo code in case you want your language  specific code  pseudo code not any language specific code  so I'll be writing down the function so you're typically given the array  correct you can figure out the size of the array by  array.size but"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 525,
+    "end": 600,
+    "text": "I start I start at the 0th index correct and what I can do is I can go ahead and say i equal  to 0 and I can get on till n minus 1. One thing I know is hey listen if you haven't  reached if if if i is greater than max of index if you haven't reached me that means  you cannot you cannot jump from here. So, thereby you can straight away return false  correct apart from it can I say max index can always be updated to max of max index comma i plus  array of whatever jump is given to you I can I can at about any moment maybe you just skip it  you can write if max index at any moment is greater than equal to n minus 1 you can stop  and if this condition remember if this condition never happens which means you're able to reach  the last index thereby you can straight away see return false sorry return to to optimize you  can definitely insert a if condition in case during the journey you were able to reach  you can put an if condition over here that will be it"
+  },
+  {
+    "video_id": "tZAa_jJ3SwQ",
+    "start": 600,
+    "end": 675,
+    "text": "what is the time complexity we go off n what is the space complexity we go off one that's it  this is the most optimal solution again i was greedy i tried to jump the maximum and see if  i'm able to reach the end or not simple sorted greedy algorithm the catch over here is zero  if you're able to cross zero you will be able to reach and if there are no zeros you will always  be able to reach that's the catch and please tell these edge cases to the interview there'll  be more than happy so this will be it for this one so if you're still now watching and if you  want to store everything please please do consider giving us a like and if you're new to our channel  do consider subscribing to us as well with this i'll be wrapping up this video let's  meet in some other video"
+  }
+]

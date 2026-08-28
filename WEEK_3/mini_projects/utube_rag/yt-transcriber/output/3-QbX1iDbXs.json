@@ -1,0 +1,38 @@
+[
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 0,
+    "end": 75,
+    "text": "So, let's continue with our greedy algorithms playlist if we are starting off, Avery I will  come back to the channel I hope you guys are doing extremely well.  So, the problem that we will be solving today is shortest job first problem.  What is the problem stating?  The problem is stating that you will be given n processes and every process execution  time is known to you, the first process takes 4 units of time to execute.  The third process takes 7 units of time to execute.  Now your task is to compute the average waiting time for all the processes following the shortest  job first algorithm.  What is the shortest job first algorithm?  I have written it down over here, let's quickly go through it.  Scheduling policy that selects the waiting process with the smallest execution time  to execute next, this is important.  A scheduling policy which always executes the smallest execution time first.  So, I have to write down the process numbers, this is P1, this is P2, this is P3, this  is P4, this is P5."
+  },
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 75,
+    "end": 150,
+    "text": "And each of them is arriving at time 0, so if I have to follow the SJF algorithm, it is stating that the one with the least execution time will be executed first, so can I say that p4 is the one that will be executed first because it has the least execution time, so it will occupy the time from 0 to 1.  So it is starting at time 0, so can I say for p4 the waiting time was 0 because it started at time 0, agreed? Agreed?  Which one will be after this? p5, p5 because it has the least execution time which is 2, but when does p5 start?  Can I say that p5 is starting at time 1 because that is when it starts and when will it end? It is having an execution time of 2, so it is going to end at 3, perfect.  Which one is going to be the next one? p2, so can I say p2 is starting at 3? I can, so the waiting time for p2 is 3 seconds, perfect.  How much is p2 taking? 3, it is going to end up taking..."
+  },
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 150,
+    "end": 225,
+    "text": "Till the time, six, which one after that P2 is done, which one after that P1, so can  I say P1 starts at six, so the waiting time is six, it is taking four seconds, so it's  going to go ahead till ten, so that's for P1, which one after that P3, because that  is the only one left, so maybe P3 starts, not maybe P3 starts at ten and it will go  on till seventeen done and dusted, everyone's waiting time is known to me, so what I can  do is, I can sum up the waiting time because I need the average waiting time  for all the processes, so if I sum it up, the total waiting time will be 20, how  many processes did we have, n equal to 5, so the average will be 20 by 5, that's  4, this is what you'll have to return, if it was 4.2, you still return 4, if it  was 4.7, you still return 4, the nearest smallest integer is what you  returned for the average, okay, got it, how do I solve this, straight forward, you  execute the smallest ones at first, the first thing you do is, you sort this  up"
+  },
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 225,
+    "end": 300,
+    "text": "simply sort this up. So, that will be 1, 2, 3, 4, 7. So, the execution times are sorted and  then you can take a smaller timer and you can do the computations. So, what I will do is the first  step is sorting it up. I will sort it greedy because that is what the algorithm is stating  smallest execution first time. So, let us take a timer equal to 0 and let us take a waiting time.  So, let us compute the waiting time to be initially 0. I will do this first. We are at the 1 and the  time is 0 and the waiting time will be 0 plus 0 that is 0. So, when we perform this one,  where will the time stand? 0 plus 1 goes to 1 and then we go to the next one.  Now, when I go to the next one, it is taking time 2. I start set time 1. So, the waiting time  0 plus 1 because this guy is taking 1. So, I just add up 1 to it. Perfect. It is going to  complete at 1 plus 2, 3. 1 plus 2, 3. Done. We go to the next one. Next one is starting at 3.  Starting at 3."
+  },
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 300,
+    "end": 375,
+    "text": "So, can I say the waiting time will be 3 plus 1, the total waiting time will be 4, perfect.  When does it end, 6, so this is done, I go to the next, when does it start, 6, so the  waiting time will be 10, when does it end, it ends at 10 because I will take another  4, but after this 7, I starting at 10, so I add 10, so the waiting time will be 20,  and this ends up at 17, so I can go to the next and that is how I will do it.  At the end of the day, I have the waiting time as 20, so what I can return is 20 by the size  of the array and it is 5, it is 4 point, I just return 4, truncate it and return the  integer part, then enduce it, super simple, let's quickly write down the code, so it  will be function, if I given an array, they can take the array, first thing I  will do is sort the array, very straightforward, you can keep the timer as 0, you can keep the  wait timer as 0 itself and then you can start iterating from 0 till n minus 1 and you can  say, the wait time initially is going to be when this current process is starting and  when does it end, p plus equal to 0."
+  },
+  {
+    "video_id": "3-QbX1iDbXs",
+    "start": 375,
+    "end": 450,
+    "text": "area of i. So, this is it yeah that is it and eventually you could go ahead and return  the total time which is weight time divided by n and if it has a interlong return type  it is automatically it will automatically get truncated to the smallest integer leaving  out the decimal part. What about the time complexity that is a  b go of n is it no b go of n plus n log n because I am sorting and then am I  treating what about the space complexity that's a b go of 1 we are tampering the  data we are tampering the data said this will be the most optimal solution have  we understood it so if you're still now watching and if you understood this one  please please do consider giving us a like and if you're new to our channel do  consider subscribing to us as well with this I'll be wrapping up this  video let's meet in some other video"
+  }
+]

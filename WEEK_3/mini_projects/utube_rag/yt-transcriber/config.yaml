@@ -10,6 +10,11 @@ paths:
 youtube:
   urls:
     - https://www.youtube.com/watch?v=HDHQ8lAWakY
+    - https://www.youtube.com/watch?v=tZAa_jJ3SwQ
+    - https://www.youtube.com/watch?v=3-QbX1iDbXs
+    - https://www.youtube.com/watch?v=n_tmibEhO6Q
+    - https://www.youtube.com/watch?v=DIX2p7vb9co
+    - https://www.youtube.com/watch?v=pBWCOCS636U
     # - "https://www.youtube.com/watch?v=ruxb9RjAv4E&list=PLW4OpyGE0RdY"
     # - https://www.youtube.com/watch?v=ahaLgJr3HcU&list=PLW4OpyGE0RdY
     # - "https://www.youtube.com/watch?v=Vl2WcqdizZ0&list=PLW4OpyGE0RdY"
