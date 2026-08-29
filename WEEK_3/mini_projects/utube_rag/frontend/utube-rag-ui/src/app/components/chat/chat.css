@@ -53,3 +53,33 @@ button {
   display: block;
   color: #2563eb;
 }
+
+.text {
+  line-height: 1.6;
+}
+
+.text h1, .text h2, .text h3 {
+  margin-top: 10px;
+}
+
+.text ul {
+  padding-left: 20px;
+}
+
+.text li {
+  margin-bottom: 5px;
+}
+
+.text code {
+  background: #111;
+  color: #0f0;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.text pre {
+  background: #111;
+  padding: 10px;
+  overflow-x: auto;
+  border-radius: 6px;
+}

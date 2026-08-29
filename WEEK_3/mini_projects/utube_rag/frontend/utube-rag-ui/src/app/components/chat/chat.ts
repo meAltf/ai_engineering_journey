@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChatService } from '../../services/chat.service';
-import { RouterOutlet } from '@angular/router';
+import { marked } from 'marked';
+
 
 interface Message {
   role: 'user' | 'assistant';
@@ -56,7 +57,7 @@ export class Chat {
       // add AI response
       this.messages.push({
         role: 'assistant',
-        content: res.answer,
+        content: marked.parse(res.answer) as string,
         sources: res.sources
       });
 

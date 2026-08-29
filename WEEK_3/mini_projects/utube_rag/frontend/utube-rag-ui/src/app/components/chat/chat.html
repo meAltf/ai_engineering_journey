@@ -9,7 +9,7 @@
          [class.ai]="msg.role === 'assistant'">
 
       <div class="text">
-        {{ msg.content }}
+        <div class="text" [innerHTML]="msg.content"></div>
       </div>
 
       <!-- SOURCES -->
