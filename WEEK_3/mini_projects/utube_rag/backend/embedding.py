@@ -59,4 +59,4 @@ def create_embeddings(documents):
 
 # Test
 final_documents = create_embeddings(documents)
-print(f' {documents[48].keys()} and {documents[48].values()}')
+# print(f' {documents[48].keys()} and {documents[48].values()}')

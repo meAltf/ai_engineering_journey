@@ -52,6 +52,9 @@ print("\nSearch resuls!")
 # LLM call
 def ask_llm(question, context):
     user_prompt = f''' 
+    Please do not hallucinate.
+    Do not add extra points from yourself and also do not add '*'.
+    
     Answer the question using only the information provided below.
     Context: {context}
     question: {question}
@@ -59,7 +62,6 @@ def ask_llm(question, context):
     If the answer is not present in the context, say:
     "I don't know based on the provided information in RAG!"
 
-    Do not add extra points from yourself.
     '''
 
     llm_response = groq_client.chat.completions.create(
