@@ -38,7 +38,7 @@ def search(query, top_result):
 
 # Test
 query = "regarding greedy algorithm"
-results = search(query, top_result=10)
+# results = search(query, top_result=10)
 print("\nSearch resuls!")
 
 # for result in results:
@@ -78,32 +78,33 @@ def ask_llm(question, context):
 
 
 # Finally, Complete the RAG
-question = "Regarding greedy algorithm"
+if __name__ == "__main__":
+    question = "Regarding greedy algorithm"
 
-rag_result = search(question, top_result=5)
+    rag_result = search(question, top_result=5)
 
-# Build context
-context = ""
-for i, result in enumerate(rag_result):
-    context += f"[Chunk {i+1}]\n"
-    context += result.payload["text"] + "\n\n"
+    # Build context
+    context = ""
+    for i, result in enumerate(rag_result):
+        context += f"[Chunk {i+1}]\n"
+        context += result.payload["text"] + "\n\n"
 
 
-# Build sources
-sources = [
-    {
-        "video_id": r.payload["video_id"],
-        "start_time": seconds_to_timestamp(r.payload["start"]),
-        "url": f"https://www.youtube.com/watch?v={r.payload['video_id']}&t={r.payload['start']}s"
+    # Build sources
+    sources = [
+        {
+            "video_id": r.payload["video_id"],
+            "start_time": seconds_to_timestamp(r.payload["start"]),
+            "url": f"https://www.youtube.com/watch?v={r.payload['video_id']}&t={r.payload['start']}s"
+        }
+        for r in rag_result
+    ]
+
+    final_answer = ask_llm(question, context)
+    final_output = {
+        "answer": final_answer,
+        "sources": sources
     }
-    for r in rag_result
-]
 
-final_answer = ask_llm(question, context)
-final_output = {
-    "answer": final_answer,
-    "sources": sources
-}
-
-print(final_output)
-print(f"\nfinal answer: {final_answer}")
+    print(final_output)
+    print(f"\nfinal answer: {final_answer}")
