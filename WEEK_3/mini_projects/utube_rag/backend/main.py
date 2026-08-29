@@ -1,10 +1,20 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 from app import search, ask_llm
 from utils import seconds_to_timestamp
 
 app = FastAPI()
+
+# CORS resolution
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # for devevelopment
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # step-1 | Request model
