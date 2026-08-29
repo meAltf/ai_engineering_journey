@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ChatService } from '../../services/chat.service';
 import { marked } from 'marked';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 interface Message {
@@ -24,8 +25,12 @@ export class Chat {
 
   userInput = '';
   messages: Message[] = [];
+  videoUrl: any = null;
 
-  constructor(private chatService: ChatService) {}
+  constructor(
+    private chatService: ChatService,
+    private sanitizer: DomSanitizer
+  ) { }
 
   async sendMessage() {
 
@@ -70,5 +75,18 @@ export class Chat {
         content: 'Error while fetching response'
       });
     }
+  }
+
+  playVideo(source: any) {
+
+    const videoId = source.video_id;
+
+    // convert "01:15" → seconds (optional if backend already gives seconds)
+    const parts = source.start_time.split(':');
+    const seconds = (+parts[0]) * 60 + (+parts[1]);
+
+    const url = `https://www.youtube.com/embed/${videoId}?start=${seconds}&autoplay=1`;
+
+    this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 }

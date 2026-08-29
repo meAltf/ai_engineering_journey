@@ -1,39 +1,45 @@
-<div class="chat-container">
+<div class="layout">
 
-  <!-- messages -->
-  <div class="messages">
+  <div class="chat-container">
 
-    <div *ngFor="let msg of messages"
-         class="message"
-         [class.user]="msg.role === 'user'"
-         [class.ai]="msg.role === 'assistant'">
+    <!-- messages -->
+    <div class="messages">
 
-      <div class="text">
-        <div class="text" [innerHTML]="msg.content"></div>
-      </div>
+      <div *ngFor="let msg of messages" class="message" [class.user]="msg.role === 'user'"
+        [class.ai]="msg.role === 'assistant'">
 
-      <!-- SOURCES -->
-      <div class="sources" *ngIf="msg.sources">
+        <div class="text">
+          <div class="text" [innerHTML]="msg.content"></div>
+        </div>
 
-        <div *ngFor="let s of msg.sources">
-          <a [href]="s.url" target="_blank">
-            ▶ {{ s.video_id }} ({{ s.start_time }})
-          </a>
+        <!-- SOURCES -->
+        <div class="sources" *ngIf="msg.sources">
+
+          <div *ngFor="let s of msg.sources">
+            <span class="link" (click)="playVideo(s)">
+              ▶ {{ s.video_id }} ({{ s.start_time }})
+            </span>
+            <!-- <a [href]="s.url" target="_blank"> ▶ {{ s.video_id }} ({{ s.start_time }}) </a> -->
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- input -->
+    <div class="input-box">
+
+      <input [(ngModel)]="userInput" placeholder="Ask something..." (keyup.enter)="sendMessage()" />
+
+      <button (click)="sendMessage()">Send</button>
+
+    </div>
   </div>
 
-  <!-- input -->
-  <div class="input-box">
+  <!-- RIGHT: VIDEO -->
+  <div class="video-section">
 
-    <input
-      [(ngModel)]="userInput"
-      placeholder="Ask something..."
-      (keyup.enter)="sendMessage()"
-    />
-
-    <button (click)="sendMessage()">Send</button>
+    <iframe *ngIf="videoUrl" [src]="videoUrl" frameborder="0" >
+    </iframe>
 
   </div>
 </div>
