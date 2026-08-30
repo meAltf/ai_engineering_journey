@@ -42,8 +42,9 @@
   <!-- RIGHT: VIDEO -->
   <div class="video-section">
 
-    <iframe *ngIf="videoUrl" [src]="videoUrl" frameborder="0" >
-    </iframe>
+    <iframe *ngIf="videoUrl" [src]="videoUrl" frameborder="0"> </iframe>
+
+    <div *ngIf="!videoUrl" class="no-video"> No lecture has been loaded </div>
 
   </div>
 </div>
