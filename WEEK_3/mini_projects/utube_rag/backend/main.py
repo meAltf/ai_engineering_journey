@@ -32,11 +32,11 @@ def ask_question(request: QueryRequest):
     # search
     rag_result = search(question, top_result=top_res)
 
-    if not rag_result:
+    if not rag_result or rag_result[0].score < 0.4:
         return {
             "answer": "I don't know based on the provided information in RAG!", 
             "sources": []
-            }
+        }
 
     # build context
     context = ""
@@ -47,11 +47,12 @@ def ask_question(request: QueryRequest):
     # build sources
     sources = [
         {
-            "video_id": r.payload["video_id"],
-            "start_time": seconds_to_timestamp(r.payload["start"]),
-            "url": f"https://www.youtube.com/watch?v={r.payload['video_id']}&t={r.payload['start']}s"
+            "score": res.score,
+            "video_id": res.payload["video_id"],
+            "start_time": seconds_to_timestamp(res.payload["start"]),
+            "url": f"https://www.youtube.com/watch?v={res.payload['video_id']}&t={res.payload['start']}s"
         }
-        for r in rag_result
+        for res in rag_result
     ]
 
     # LLM call

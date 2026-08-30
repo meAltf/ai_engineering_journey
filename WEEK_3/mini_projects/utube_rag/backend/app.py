@@ -19,7 +19,7 @@ groq_client = Groq(api_key = my_api_key)
 my_model = "openai/gpt-oss-120b"
 
 # search in qdrant DB
-def search(query, top_result, score_threshold=0.50):
+def search(query, top_result):
 
     query_vector = emb_model.encode(query).tolist()
     # print(f'query vector: {query_vector}')
@@ -32,10 +32,8 @@ def search(query, top_result, score_threshold=0.50):
         with_payload = True
     ).points
 
-    filtered_result = [r for r in search_result if r.score >= score_threshold]
-
     # print(f'searched result: {search_result}')
-    return filtered_result
+    return search_result
 
 
 # Test
