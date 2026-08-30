@@ -33,7 +33,10 @@ def ask_question(request: QueryRequest):
     rag_result = search(question, top_result=top_res)
 
     if not rag_result:
-        return {"answer": "No relevant data found", "sources": []}
+        return {
+            "answer": "I don't know based on the provided information in RAG!", 
+            "sources": []
+            }
 
     # build context
     context = ""
