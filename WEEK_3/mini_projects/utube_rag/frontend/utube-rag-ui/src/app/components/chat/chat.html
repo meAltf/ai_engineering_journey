@@ -44,6 +44,8 @@
 
     <iframe *ngIf="videoUrl" [src]="videoUrl" frameborder="0"> </iframe>
 
+    <img *ngIf="!videoUrl" class="thumbnail" src="assets/utube-thumbnail.avif" alt="thumbnail" />
+
     <div *ngIf="!videoUrl" class="no-video"> No lecture has been loaded </div>
 
   </div>
