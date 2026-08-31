@@ -3,6 +3,10 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 import nltk
 from nltk.tokenize import sent_tokenize
 
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+from nltk.tokenize import sent_tokenize
+
 # 1. Fixed size chunking
 def fixed_size_chunk(text, chunk_size=100, overlap=20):
 
@@ -70,3 +74,44 @@ for i, chunk in enumerate(chunks):
     print(chunk)
     print()
 
+
+# 4. Semantic chunking | using embbedding to detect topic shifts
+
+# simple Idea:
+# 1. Split text into sentences.
+# 2. Get an embedding for each sentence.
+# 3. Compare each sentence's embedding to the next one's (cosine similarity).
+# 4. If similarity drops below a threshold → that's a topic shift → cut here.
+
+embed_model = SentenceTransformer('all-MiniLM-L6-v2')
+
+def semantic_chunk(text, similarity_threshold=0.5):
+    sentences = sent_tokenize(text)
+    embeddings = embed_model.encode(sentences)
+
+    chunks = []
+    current_chunk = [sentences[0]]
+
+    for i in range(1, len(sentences)):
+        # compare this sentence's embedding to the previous one
+        sim = cosine_similarity(
+            [embeddings[i - 1]],
+            [embeddings[i]]
+        )[0][0]
+
+        if sim >= similarity_threshold:
+            current_chunk.append(sentences[i])
+        else:
+            chunks.append(" ".join(current_chunk))
+            current_chunk = [sentences[i]]
+
+    chunks.append(" ".join(current_chunk))  #adding last chunk
+    return chunks
+
+chunks = semantic_chunk(sample_text, similarity_threshold=0.5)
+
+print(f"-------------- semantic chunking --------------------\n")
+for i, chunk in enumerate(chunks):
+    print(f"--- Chunk {i+1} ---")
+    print(chunk)
+    print()
