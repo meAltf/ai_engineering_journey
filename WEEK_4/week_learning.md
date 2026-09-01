@@ -54,3 +54,14 @@
 - Semantic           → smartest about meaning, costs more compute
 - Structure-based    → best when doc has clean headers
 - Agentic            → smartest overall, slowest/costliest
+
+
+
+# RAG EVALUATION
+    1. Context level:
+        - Precision/accuracy:
+            - (total relevant response received / total response received from vectorDB) % 100
+        
+        - Recall:
+            - (total relevant response received / total relevant response actually have in vectorDB) % 100
+    
