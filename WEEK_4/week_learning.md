@@ -65,3 +65,17 @@
         - Recall:
             - (total relevant response received / total relevant response actually have in vectorDB) % 100
     
+    2. LLM level:
+        - Faithfullness:
+            - if response from context == response from LLM then it's faithfull.
+            - if response from context != response from LLM then it's not faithful
+            - Give answer according to context no matter context is right or wrong.
+
+        - Relevancy:
+            - relvant answer or not 
+
+        - Correctness:
+            - if response from context == response from LLM then it comes under correctness
+            - But if response from context != response from LLM then it doesn't comes under correctness
+            - ex: if response from context is coming wrong and the same wrong response is coming from LLM as well means it's following correctness.
+            - Give correct answer based on ground truth
