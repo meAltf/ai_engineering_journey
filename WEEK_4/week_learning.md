@@ -79,3 +79,16 @@
             - But if response from context != response from LLM then it doesn't comes under correctness
             - ex: if response from context is coming wrong and the same wrong response is coming from LLM as well means it's following correctness.
             - Give correct answer based on ground truth
+
+
+
+# Agentic-AI without Langgraph:
+    - Agent → (think → decide → act → observe → repeat)
+    - User → Agent → (decides what to do)
+    - example: User → Manager → Employees (tools)
+        - Manager = Agent & Employees = tools (calculator, search)
+
+
+# Achitecture:
+    - User Input → Think (LLM reasoning) → Decide (which tool?) → Execute Tool → Feed Result back to LLM → Final Answer
+    
