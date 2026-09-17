@@ -7,6 +7,7 @@ from groq import Groq
 from tavily import TavilyClient
 
 from prompts import user_prompt
+from prompts import system_prompt
 
 
 load_dotenv()
@@ -38,7 +39,7 @@ def calculator_tool(expression: str) -> str:
 def web_search_tool(query: str) -> str:
     """Web search like google using Tavily"""
     tavily_response = tavily_client.search(query = query, max_result = 4)
-    print(f'''Tavily full response: {tavily_response}''')
+    # print(f'''Tavily full response: {tavily_response}''')
 
     results = []
     for item in tavily_response.get("results", []):
@@ -82,6 +83,7 @@ def plan_step(user_query, history):
 
     # create prompt for AI
     user_prmpt = user_prompt(user_query, tools_text, history)
+    system_prmpt = system_prompt()
 
     # call LLM
     response = groq_clinet.chat.completions.create(
@@ -90,6 +92,10 @@ def plan_step(user_query, history):
             {
                 "role": "user",
                 "content": user_prmpt
+            },
+            {
+                "role": "system",
+                "content": system_prmpt
             }
         ],
         temperature = 0
@@ -128,7 +134,7 @@ def run_agent(user_query):
         tool_input = parsed_plan.get("input")
 
         # final answer
-        if tool_name == "Final answer":
+        if tool_name == "final_answer":
             print("Final Answer Reached")
             return tool_input
 
@@ -143,7 +149,7 @@ def run_agent(user_query):
         Output: {result}
         '''
 
-        return "Max step reached"
+    return "Max step reached"
 
 
 # 7. Finally RUN your AI-AGENT

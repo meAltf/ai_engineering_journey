@@ -19,3 +19,9 @@ def user_prompt(user_query: str, tools_text: str, history: str):
     )
 
     return user_prompt
+
+def system_prompt():
+    return f'''
+    For web search query, please do not answer more than 50 words.
+    Keep the response simple & concise.
+    '''
