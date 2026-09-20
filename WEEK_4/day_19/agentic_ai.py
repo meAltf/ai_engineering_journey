@@ -17,7 +17,7 @@ model_openai = "openai/gpt-oss-120b"
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
-groq_clinet = Groq(api_key = GROQ_API_KEY)
+groq_client = Groq(api_key = GROQ_API_KEY)
 if not GROQ_API_KEY:
     raise ValueError("I didn't find any API key in env file searching with key name: 'GROQ_API_KEY'.")
 
@@ -86,7 +86,7 @@ def plan_step(user_query, history):
     system_prmpt = system_prompt()
 
     # call LLM
-    response = groq_clinet.chat.completions.create(
+    response = groq_client.chat.completions.create(
         model = model_openai,
         messages = [
             {
