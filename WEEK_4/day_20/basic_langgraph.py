@@ -11,10 +11,10 @@ class State(TypedDict):
 # node1 - impl
 def multiply(state: State) -> dict:
     boardNum = state["number"]
-    print(f'coming from langgraph board , mainly from state {boardNum}')
+    # print(f'coming from langgraph board , mainly from state {boardNum}')
     updatedNum = 3 * boardNum
-    updatedCountry = "India"
-    print(f'Update langgraph state data- num & country: {updatedNum} and {updatedCountry}')
+    updatedCountry = "Germany"
+    print(f'Update langgraph state data- num: {updatedNum} and country: {updatedCountry}')
     return {
         "number": updatedNum,
         "country": updatedCountry
@@ -24,6 +24,7 @@ def multiply(state: State) -> dict:
 def finish(state: State) -> dict:
     finalNum = state["number"]
     finalCountry = state["country"]
+    print(f'Reached at the end of execution!!')
     return {
         "number": finalNum,
         "country": finalCountry
@@ -59,6 +60,6 @@ graph = builder.compile()
 
 # run langgraph ai agent
 if __name__ == "__main__":
-    initial_value =  {"number": 10, "country": "Germany"}
+    initial_value =  {"number": 10, "country": "India"}
     result = graph.invoke(initial_value)
 
