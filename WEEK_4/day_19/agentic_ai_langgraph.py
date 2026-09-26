@@ -28,7 +28,7 @@ if not TAVILY_API_KEY:
 
 
 # agent state
-class AgentState:
+class AgentState(TypedDict):
     input: str
     history: str
     tool: str

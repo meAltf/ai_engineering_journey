@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from groq import Groq
 from tavily import TavilyClient
 
+from typing import TypedDict
 from langgraph.graph import END, StateGraph
 
 load_dotenv()
@@ -66,11 +67,15 @@ def research_agent(query, context):
     return eval(agent_response)
 
 # TOOLs registry - let's try building without tools registry:
+TOOLS = {
+    "web_search": tavily_search
+}
+
 
 # convert this into langGraph type:
 # agent state
 # 1. implement a state class
-class AgentState:
+class AgentState(TypedDict):
     user_query: str
     history: str
     function: str
@@ -85,17 +90,33 @@ def planner_mode(state: AgentState):
     user_query = state.get("user_query")
     history = state.get("history", "")
 
-    response_from_llm = llm_response(user_query)
-    print(f'The llm response: {response_from_llm}')
+    prompt = f'''
+    You are a genius planner.
+    User question: {user_query}
+    Context: {history}
+
+    Decide next step:
+    1. If you need more info then use tool "web_search"
+    2. If enough info then return final answer
+
+    Return only in JSON:
+    {{
+        "action": "web_search" or "final_answer"
+        "input": "search query or final answer"
+    }}
+    '''
+
+    response_from_llm = llm_response(prompt)
+    print(f'The planner llm response: {response_from_llm}')
+
+    parsed = eval(response_from_llm)
 
     # updating state
-    state["history"] = history
-    state["tool_input"] = response_from_llm
+    state["function"] = parsed["action"]
+    state["function_input"] = parsed["input"]
 
-    tool_final_result = state["tool_input"]
-
-    if state["tool_input"] == "final_answer":
-        state["final_answer"] = tool_final_result
+    if parsed["action"] == "final_answer":
+        state["final_answer"] = parsed["input"]
 
     return state
 
@@ -103,12 +124,17 @@ def planner_mode(state: AgentState):
 def execute_tool_node(state: AgentState):
     print("\n execute function node activated!")
 
-    function_name = state["function"]
-    function_input = state["function_input"]
+    function_name = state.get("function")
+    function_input = state.get("function_input")
+    print(f' function name: {function_name} and function input: {function_input}')
 
-    # if not function_name:
-    #     return "Invalid tool"
-    result =  function["function_input"]
+    tool = TOOLS.get(function_name)
+
+    if not tool:
+        raise ValueError(f'Tool: {function_name} not found')
+
+    result = tool(function_input)
+    print(f'Tool result: {result}')
 
     # update history state
     state["history"] += f'''
@@ -124,14 +150,14 @@ def decision_edge(state: AgentState):
     if state.get("function") == "final_answer":
         return "end"
     else:
-        return "function"
+        return "tool" 
 
 # build graph
 builder_graph = StateGraph(AgentState)
 
 # add nodes
 builder_graph.add_node("planner", planner_mode)
-builder_graph.add_node("function", execute_tool_node)
+builder_graph.add_node("tool", execute_tool_node)
 
 # entry point
 builder_graph.set_entry_point("planner")
@@ -141,13 +167,13 @@ builder_graph.add_conditional_edges(
     "planner",
     decision_edge,
     {
-        "function": "function",
+        "tool": "tool",
         "end": END
     }
 )
 
 # loop
-builder_graph.add_edge("function", "planner")
+builder_graph.add_edge("tool", "planner")
 
 #compile
 final_lang_graph = builder_graph.compile()
@@ -194,7 +220,7 @@ if __name__ == "__main__":
     question = input(f'\n Please ask a question! \n')
 
     initial_value = {
-        "input": question,
+        "user_query": question,
         "history": "",
         "function": "",
         "function_input": "",
